@@ -19,6 +19,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:manage-list|manage-create|manage-edit|manage-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:manage-create', ['only' => ['create','store']]);
+         $this->middleware('permission:manage-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:manage-delete', ['only' => ['destroy']]);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request): View
     {
         $data = User::latest()->paginate(5);

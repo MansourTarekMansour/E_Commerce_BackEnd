@@ -14,6 +14,10 @@ class PermissionTableSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
+           'manage-list',
+           'manage-create',
+           'manage-edit',
+           'manage-delete',
            'role-list',
            'role-create',
            'role-edit',
