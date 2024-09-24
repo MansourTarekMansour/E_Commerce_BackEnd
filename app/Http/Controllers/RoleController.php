@@ -1,8 +1,8 @@
 <?php
-    
+
 namespace App\Http\Controllers;
 
-
+use App\Traits\HandlesRolesPermissions;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,22 +10,16 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Spatie\Permission\Models\Permission;
-    
-class RoleController extends Controller
+
+class RoleController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    use HandlesRolesPermissions;
     function __construct()
     {
-         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:role-create', ['only' => ['create','store']]);
-         $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        $this->middleware('auth');
+        $this->setupRolesPermissions();
     }
-    
     /**
      * Display a listing of the resource.
      *
@@ -57,7 +51,7 @@ class RoleController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required|unique:roles,name',
             'permission' => 'required',
         ]);
@@ -115,7 +109,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate( [
             'name' => 'required',
             'permission' => 'required',
         ]);

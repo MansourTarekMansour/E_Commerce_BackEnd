@@ -8,15 +8,64 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    /**
-     * The attributes that are mass assignable.
-     *	
-     * @var array
-     */
+
+    protected $table = 'products'; // Specify the table name if different from plural of model name
+
+    protected $primaryKey = 'product_id'; // Specify the primary key if it's not 'id'
+
     protected $fillable = [
-        'name', 'detail'
+        'name',
+        'description',
+        'price',
+        'discount_price',
+        'quantity_in_stock',
+        'quantity_sold',
+        'is_available',
+        'main_image',
+        'rating',
+        'customer_id',
+        'category_id',
+        'brand_id',
     ];
 
+    // Relationships
 
-    
+    public function customers()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'product_id');
+    }
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class, 'product_id');
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'product_id');
+    }
+
+    public function files()
+    {
+        return $this->morphMany(File::class, 'fileable'); 
+    }
+
+    public function mainFile()
+    {
+        return $this->belongsTo(File::class, 'main_file_id'); // A product can have one main file
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Traits\HandlesUsersPermissions;
 use Illuminate\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -12,20 +13,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    function __construct()
+
+    use HandlesUsersPermissions;
+    public function __construct()
     {
-         $this->middleware('permission:manage-list|manage-create|manage-edit|manage-delete', ['only' => ['index','show']]);
-         $this->middleware('permission:manage-create', ['only' => ['create','store']]);
-         $this->middleware('permission:manage-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:manage-delete', ['only' => ['destroy']]);
+        $this->middleware('auth');
+        $this->setupUsersPermissions();
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +56,7 @@ class UserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
@@ -113,7 +110,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $this->validate($request, [
+        $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'same:confirm-password',

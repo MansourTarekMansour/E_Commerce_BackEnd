@@ -54,22 +54,22 @@
                         @endif
                         @else
                         <li>
-                            @can('manage-list')
+                            @can('users-list')
                             <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
                             @endcan
                         </li>
                         <li>
-                            @can('role-list')
+                            @can('roles-list')
                             <a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a>
                             @endcan
                         </li>
                         <!-- <li>
-                            @can('permission-list')
+                            @can('permissions-list')
                             <a class="nav-link" href="{{ route('permissions.index') }}">Manage Permission</a>
                             @endcan
                         </li> -->
                         <li>
-                            @can('product-list')
+                            @can('products-list')
                             <a class="nav-link" href="{{ route('products.index') }}">Manage Product</a>
                             @endcan
                         </li>
