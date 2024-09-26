@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id('order_id');
+            $table->id();
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->foreignId('payment_id')->nullable()->constrained()->onDelete('set null'); // Foreign Key for payment, nullable
             $table->decimal('total_amount', 10, 2);

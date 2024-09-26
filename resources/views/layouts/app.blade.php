@@ -1,116 +1,79 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <title>Your Application</title>
 </head>
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Roles and Permissions
+<body id="body-pd">
+
+    @if(Auth::check())
+    <header class="header" id="header">
+        <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+        <div class="header_img"><img src="https://i.imgur.com/hczKIze.jpg" alt=""></div>
+    </header>
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="{{ route('home') }}" class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">E-COMMERCE</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li>
-                            @can('users-list')
-                            <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
-                            @endcan
-                        </li>
-                        <li>
-                            @can('roles-list')
-                            <a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a>
-                            @endcan
-                        </li>
-                        <!-- <li>
-                            @can('permissions-list')
-                            <a class="nav-link" href="{{ route('permissions.index') }}">Manage Permission</a>
-                            @endcan
-                        </li> -->
-                        <li>
-                            @can('products-list')
-                            <a class="nav-link" href="{{ route('products.index') }}">Manage Product</a>
-                            @endcan
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
+                <div class="nav_list">
+                    
+                    <a href="{{ route('home') }}" class="nav_link {{ request()->routeIs('home') ? 'active' : '' }}">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+                    <a href="{{ route('users.index') }}" class="nav_link {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Admins</span>
+                    </a>
+                    <a href="{{ route('roles.index') }}" class="nav_link {{ request()->routeIs('roles.*') ? 'active' : '' }}">
+                        <i class='bx bx-bookmark nav_icon'></i>
+                        <span class="nav_name">Role</span>
+                    </a>
+                    <a href="{{ route('products.index') }}" class="nav_link {{ request()->routeIs('products.*') ? 'active' : '' }}">
+                        <i class='bx bx-folder nav_icon'></i>
+                        <span class="nav_name">Product</span>
+                    </a>
                 </div>
             </div>
+            <a href="{{ route('logout') }}" class="nav_link" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">SignOut</span>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </a>
         </nav>
-
+    </div>
+    @endif
+    <!-- Container Main start -->
+    <div class="height-100">
         <main class="py-4">
-            <div class="container">
+            <div class="container bg-white">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                @yield('content')
-                            </div>
+                        <div class="card-body">
+                            @yield('content')
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
 </html>

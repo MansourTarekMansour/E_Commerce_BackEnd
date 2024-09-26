@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
+use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use App\Traits\HandlesProductsPermissions;
 
 class ProductController extends BaseController
@@ -24,98 +28,186 @@ class ProductController extends BaseController
      */
     public function index(): View
     {
-        $products = Product::latest()->paginate(5);
+        $products = Product::with('category', 'brand')->paginate(10);
         return view('products.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(): View
     {
-        return view('products.create');
+        $categories = Category::all(); // Fetch all categories
+        $brands = Brand::all(); // Fetch all brands
+
+        return view('products.create', compact('categories', 'brands'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request): RedirectResponse
+
+
+    public function store(Request $request)
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
+        // Validate the incoming request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0|max:99999999.99',
+            'discount_price' => 'nullable|numeric|min:0|max:99999999.99',
+            'quantity_in_stock' => 'required|integer',
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'images' => 'nullable|array', // New validation for images
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Individual image validation
         ]);
 
-        Product::create([
-            'name' => $request->input('name'),
-            'detail' => $request->input('detail'),
-            'user_id' => Auth::id(),
+        // Create a new product instance
+        $product = Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'discount_price' => $request->discount_price,
+            'quantity_in_stock' => $request->quantity_in_stock,
+            'quantity_sold' => 0, // Assuming initially no items sold
+            'is_available' => true, // Default value
+            'rating' => 0, // Default rating
+            'user_id' => Auth::id(), // Use the authenticated user's ID
+            'category_id' => $request->category_id,
+            'brand_id' => $request->brand_id,
         ]);
 
-        return redirect()->route('products.index')
-            ->with('success', 'Product created successfully.');
+        // Handle file uploads
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                // Ensure file is not null
+                if ($file) {
+                    $path = $file->store('product_images', 'public'); // Store image in 'public/product_images' directory
+
+                    // Create a new File record
+                    File::create([
+                        'url' => $path,
+                        'fileable_id' => $product->id,
+                        'fileable_type' => Product::class,
+                        'file_type' => 'image', // Define your own logic here if necessary
+                    ]);
+                }
+            }
+        }
+        // Return a success response
+        return redirect()->route('products.index')->with('success', 'Product added successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show(Product $product): View
     {
-        return view('products.show', compact('product'));
+        $category = $product->category;
+        $brand = $product->brand;
+        $categories = Category::all(); // Assuming you have a Category model
+        $brands = Brand::all();
+        return view('products.show', compact('product', 'categories', 'brands', 'category', 'brand'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product): View
     {
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('products.edit', compact('product', 'categories', 'brands'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Product $product): RedirectResponse
     {
-        request()->validate([
-            'name' => 'required',
-            'detail' => 'required',
+        // Validate the incoming request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'discount_price' => 'nullable|numeric',
+            'quantity_in_stock' => 'required|integer',
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'images' => 'nullable|array', // New validation for images
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Individual image validation
         ]);
 
-        $product->update($request->all());
+        // Update the product with the new data
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'discount_price' => $request->discount_price,
+            'quantity_in_stock' => $request->quantity_in_stock,
+            'category_id' => $request->category_id,
+            'brand_id' => $request->brand_id,
+        ]);
 
-        return redirect()->route('products.index')
-            ->with('success', 'Product updated successfully');
+        // Delete old images if new images are provided
+        if ($request->hasFile('images')) {
+           
+            // Handle new file uploads
+            foreach ($request->file('images') as $file) {
+                if ($file) {
+                    $path = $file->store('product_images', 'public'); // Store image in 'public/product_images' directory
+
+                    // Create a new File record for each uploaded image
+                    File::create([
+                        'url' => $path,
+                        'fileable_id' => $product->id,
+                        'fileable_type' => Product::class,
+                        'file_type' => 'image',
+                    ]);
+                }
+            }
+        }
+
+        // Return a success response
+        return redirect()->route('products.index')->with('success', 'Product updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+    public function uploadImage(Request $request, Product $product)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Handle the upload
+        $file = $request->file('image');
+        $path = $file->store('product_images', 'public'); // Store in storage/app/public/product_images
+
+        // Create a new file entry in the database (assuming your File model is set up correctly)
+        $product->files()->create([
+            'url' => $path,
+            'file_type' => 'image', // Adjust this according to your implementation
+        ]);
+
+        return response()->json(['success' => true, 'file' => $path]);
+    }
+
     public function destroy(Product $product): RedirectResponse
     {
+        // Optionally, delete the associated files (images)
+        foreach ($product->files as $file) {
+            // Delete the file from storage
+            if (Storage::exists($file->url)) {
+                Storage::delete($file->url); // Delete the file from storage
+            }
+
+            // Delete the file record from the database
+            $file->delete();
+        }
+
+        // Delete the product from the database
         $product->delete();
 
-        return redirect()->route('products.index')
-            ->with('success', 'Product deleted successfully');
+        // Return a success response
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
+    }
+
+    public function destroyFile(File $file)
+    {
+        if (Storage::exists($file->url)) {
+            Storage::delete($file->url);
+        }
+        $file->delete();
+        return response()->json(['message' => 'Image deleted successfully.'], 200);
     }
 }

@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->id('file_id'); 
-            $table->morphs('fileable');
-            $table->string('url'); 
-            $table->string('file_type'); 
-            $table->timestamps(); 
+            $table->id();
+            $table->string('url');
+            $table->unsignedBigInteger('fileable_id');
+            $table->string('fileable_type');
+            $table->string('file_type'); // image, video, etc.
+            $table->timestamps();
         });
     }
 

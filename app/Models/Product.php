@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $table = 'products'; // Specify the table name if different from plural of model name
 
-    protected $primaryKey = 'product_id'; // Specify the primary key if it's not 'id'
+    protected $primaryKey = 'id'; // Specify the primary key if it's not 'id'
 
     protected $fillable = [
         'name',
@@ -21,9 +21,8 @@ class Product extends Model
         'quantity_in_stock',
         'quantity_sold',
         'is_available',
-        'main_image',
         'rating',
-        'customer_id',
+        'user_id',
         'category_id',
         'brand_id',
     ];
