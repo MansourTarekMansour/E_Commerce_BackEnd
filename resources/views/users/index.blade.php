@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Users Management</h2>
+            <h2>Admins Management</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-success mb-2" href="{{ route('users.create') }}"><i class="fa fa-plus"></i> Create New User</a>
@@ -20,7 +20,7 @@
 
 <table class="table table-bordered">
    <tr>
-       <th>No</th>
+       <th>ID</th>
        <th>Name</th>
        <th>Email</th>
        <th>Roles</th>
@@ -28,7 +28,7 @@
    </tr>
    @foreach ($data as $key => $user)
     <tr>
-        <td>{{ ++$i }}</td>
+        <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
         <td>
@@ -52,6 +52,6 @@
  @endforeach
 </table>
 
-{!! $data->links('pagination::bootstrap-5') !!}
+{!! $data->links('vendor.pagination.custom-pagination') !!}
 
 @endsection
