@@ -3,7 +3,7 @@
 :root {
     --header-height: 3rem;
     --nav-width: 75px;
-    --first-color:#000080;
+    --first-color: #000080;
     --second-color: #bebebe;
     --first-color-light: #AFA5D9;
     --white-color: #ffffff;
@@ -18,8 +18,8 @@
 
 body {
     position: relative;
-    background-color: #ffffff;
-    margin: var(--header-height) 0 0 0;
+    background-color: var(--white-color);
+    margin: var(--header-height) 0 0;
     padding: 0 1rem;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
@@ -28,7 +28,7 @@ body {
 
 .btn-main {
     background-color: var(--first-color);
-    color: white;
+    color: var(--white-color);
     border: none;
     padding: 8px 30px; 
     font-size: 16px;
@@ -61,7 +61,7 @@ body {
 }
 
 .card {
-    background-color: #ffffff;
+    background-color: var(--white-color);
 }
 
 a {
@@ -185,13 +185,13 @@ a {
 }
 
 .height-100 {
-    background-color: #ffffff;
+    background-color: var(--white-color);
     height: 100vh;
 }
 
 @media screen and (min-width: 768px) {
     body {
-        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        margin: calc(var(--header-height) + 1rem) 0 0;
         padding-left: calc(var(--nav-width) + 2rem);
     }
 
@@ -229,6 +229,62 @@ a {
 }
 
 .thumbnail-row .col-3 {
-    padding-right: 4px;  /* Control spacing between thumbnails */
-    padding-left: 4px;
+    padding: 0 4px; /* Control spacing between thumbnails */
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.pagination ul li {
+    margin: 0 4px;
+}
+
+.pagination ul li a {
+    color: var(--first-color); /* Amazon's blue color */
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination ul li.disabled a {
+    color: #888888; /* Grey for disabled links */
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+}
+
+.pagination ul li.active a {
+    background-color: var(--first-color);
+    color: white;
+    border: 1px solid var(--first-color);
+}
+
+.pagination ul li a:hover {
+    background-color: #e7f1f8;
+    color: #111111;
+}
+
+.pagination ul li.dots a {
+    cursor: default;
+    color: #888888;
+}
+
+.pagination ul li.disabled a:hover {
+    background-color: transparent;
+    color: #888888;
+    cursor: not-allowed;
 }

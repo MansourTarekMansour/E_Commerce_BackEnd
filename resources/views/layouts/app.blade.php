@@ -27,7 +27,6 @@
                     <span class="nav_logo-name">E-COMMERCE</span>
                 </a>
                 <div class="nav_list">
-                    
                     <a href="{{ route('home') }}" class="nav_link {{ request()->routeIs('home') ? 'active' : '' }}">
                         <i class='bx bx-grid-alt nav_icon'></i>
                         <span class="nav_name">Dashboard</span>
@@ -44,6 +43,14 @@
                         <i class='bx bx-folder nav_icon'></i>
                         <span class="nav_name">Product</span>
                     </a>
+                    <a href="{{ route('categories.index') }}" class="nav_link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
+                        <i class='bx bx-category nav_icon'></i>
+                        <span class="nav_name">Categories</span>
+                    </a>
+                    <a href="{{ route('brands.index') }}" class="nav_link {{ request()->routeIs('brands.*') ? 'active' : '' }}">
+                        <i class='bx bx-tag nav_icon'></i>
+                        <span class="nav_name">Brands</span>
+                    </a>
                 </div>
             </div>
             <a href="{{ route('logout') }}" class="nav_link" onclick="event.preventDefault();
@@ -57,6 +64,7 @@
         </nav>
     </div>
     @endif
+
     <!-- Container Main start -->
     <div class="height-100">
         <main class="py-4">

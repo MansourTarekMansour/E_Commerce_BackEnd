@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Category; // Assuming you have a Category model
 
 class CategoryController extends Controller
@@ -10,10 +12,25 @@ class CategoryController extends Controller
     /**
      * Display a listing of the categories.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all(); // Fetch all categories
-        return view('categories.index', compact('categories')); // Show all categories in the view
+        $query = Category::query();
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'LIKE', "%{$search}%");
+        }
+    
+        $categories = $query->paginate(10);
+    
+        return view('categories.index', compact('categories'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
+    }
+
+    public function show($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -26,20 +43,31 @@ class CategoryController extends Controller
 
     /**
      * Store a newly created category in the database.
-     */
-    public function store(Request $request)
+     */ public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255', // Validate the name
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Create a new category
-        $category = new Category();
-        $category->name = $validatedData['name'];
-        $category->save();
+        // Store the category
+        $category = Category::create($request->only('name'));
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully!');
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('category_images', 'public');
+            File::create([
+                'url' => $path,
+                'fileable_id' => $category->id,
+                'fileable_type' => Category::class,
+                'file_type' => 'image',
+            ]);
+        }
+
+        return redirect()->route('categories.index')
+            ->with('success', 'Category created successfully.');
     }
+
     public function storeAjax(Request $request)
     {
         $request->validate([
@@ -61,28 +89,45 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category')); // Show the edit form with the category data
     }
 
-    /**
-     * Update the specified category in the database.
-     */
     public function update(Request $request, Category $category)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255', // Validate the name
+        $request->validate([
+            'name' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Update the category name
-        $category->name = $validatedData['name'];
-        $category->save();
+        $category->update($request->only('name'));
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
+        if ($request->hasFile('image')) {
+            if ($category->file) {
+                Storage::disk('public')->delete($category->file->url);
+                $category->file()->delete();
+            }
+            $path = $request->file('image')->store('category_images', 'public');
+            File::create([
+                'url' => $path,
+                'fileable_id' => $category->id,
+                'fileable_type' => Category::class,
+                'file_type' => 'image',
+            ]);
+        }
+        return redirect()->route('categories.index')
+            ->with('success', 'Category updated successfully.');
     }
+
 
     /**
      * Remove the specified category from the database.
      */
     public function destroy(Category $category)
     {
-        $category->delete(); // Delete the category
-        return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
+        if ($category->file) {
+            Storage::disk('public')->delete($category->file->url);
+            $category->file()->delete();
+        }
+        $category->delete();
+        return redirect()->route('categories.index')
+            ->with('success', 'Category deleted successfully.');
     }
 }

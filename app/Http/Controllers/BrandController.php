@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
     // Display a listing of the brands
-    public function index()
+    public function index(Request $request)
     {
-        $brands = Brand::all();
-        return view('brands.index', compact('brands'));
+        $search = $request->input('search');
+        $brands = Brand::when($search, function ($query, $search) {
+            return $query->where('name', 'LIKE', "%{$search}%");
+        })->paginate(10);
+
+        return view('brands.index', compact('brands', 'search'));
     }
 
     // Show the form for creating a new brand
@@ -61,24 +66,58 @@ class BrandController extends Controller
     }
 
     // Update the specified brand in the database
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|unique:brands,name,' . $brand->id . '|max:255',
+            'name' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $brand->update([
-            'name' => $request->name,
-        ]);
+        // Find the brand by ID
+        $brand = Brand::findOrFail($id);
 
-        return redirect()->route('brands.index')->with('success', 'Brand updated successfully.');
+        // Update the brand name
+        $brand->name = $request->input('name');
+
+        // Check if a new image is uploaded
+        if ($request->hasFile('image')) {
+            // Delete the old file if it exists
+            if ($brand->file) {
+                Storage::disk('public')->delete($brand->file->url);
+                // Remove the old file record from the database
+                $brand->file()->delete();
+            }
+
+            // Store the new file
+            $path = $request->file('image')->store('brand_images', 'public');
+            $brand->file()->create(['url' => $path]);
+        }
+
+        // Save the brand
+        $brand->save();
+
+        return redirect()->route('brands.index')
+            ->with('success', 'Brand updated successfully.');
     }
 
+
     // Remove the specified brand from the database
-    public function destroy(Brand $brand)
+    public function destroy($id)
     {
+        // Find the brand by ID
+        $brand = Brand::with('file')->findOrFail($id);
+
+        // Delete the associated file if it exists
+        if ($brand->file) {
+            Storage::disk('public')->delete($brand->file->url);
+            // Remove the file record from the database
+            $brand->file()->delete();
+        }
+
+        // Delete the brand
         $brand->delete();
 
-        return redirect()->route('brands.index')->with('success', 'Brand deleted successfully.');
+        return redirect()->route('brands.index')
+            ->with('success', 'Brand deleted successfully.');
     }
 }

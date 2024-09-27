@@ -22,10 +22,10 @@ return new class extends Migration
             $table->boolean('is_available')->default(true); 
             $table->decimal('rating', 2, 1)->default(0); // Rating out of 5.0, default to 0
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade'); 
-            $table->foreignId('brand_id')->constrained()->onDelete('cascade'); 
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null'); // Change to set null
+            $table->foreignId('brand_id')->nullable()->constrained()->onDelete('set null'); // Change to set null
             $table->timestamps();
-        });
+        });        
     }
 
     /**

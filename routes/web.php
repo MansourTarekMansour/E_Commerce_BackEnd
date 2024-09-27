@@ -28,4 +28,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/products/files/{file}', [ProductController::class, 'destroyFile'])->name('products.files.destroy');
     Route::post('products/{product}/upload-image', [ProductController::class, 'uploadImage'])->name('products.uploadImage');
 
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 });

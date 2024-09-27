@@ -26,12 +26,50 @@ class ProductController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): View
+    public function index(Request $request)
     {
-        $products = Product::with('category', 'brand')->paginate(10);
-        return view('products.index', compact('products'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $query = Product::query()->with(['category', 'brand', 'comments']); // Eager load relationships
+
+        // Filter by category
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->category);
+        }
+
+        // Filter by brand
+        if ($request->filled('brand')) {
+            $query->where('brand_id', $request->brand);
+        }
+
+        // Filter by start date
+        if ($request->filled('start_date')) {
+            $query->whereDate('created_at', '>=', $request->start_date);
+        }
+
+        // Filter by end date
+        if ($request->filled('end_date')) {
+            $query->whereDate('created_at', '<=', $request->end_date);
+        }
+
+
+        // Search functionality
+        if ($request->filled('search')) {
+            $searchTerm = $request->search;
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', "%{$searchTerm}%")
+                    ->orWhere('description', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+
+        // Order the products in descending order
+        $products = $query->orderBy('id', 'desc')->paginate(10);
+
+        // Get all categories and brands
+        $categories = Category::get();
+        $brands = Brand::get();
+
+        return view('products.index', compact('products', 'categories', 'brands'));
     }
+
 
 
 
@@ -142,7 +180,7 @@ class ProductController extends BaseController
 
         // Delete old images if new images are provided
         if ($request->hasFile('images')) {
-           
+
             // Handle new file uploads
             foreach ($request->file('images') as $file) {
                 if ($file) {
