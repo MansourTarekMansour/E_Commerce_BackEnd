@@ -14,6 +14,10 @@ class Customer extends Model
     {
         return $this->hasMany(Product::class, 'customer_id');
     }
+    public function image()
+    {
+        return $this->morphOne(File::class, 'fileable')->where('file_type', 'image');
+    }
 
     public function comments()
     {

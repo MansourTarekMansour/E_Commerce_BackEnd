@@ -45,5 +45,28 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    /**
+     * Get the products for the user.
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    /**
+     * Get the categories created by the user.
+     */
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    /**
+     * Get the brands created by the user.
+     */
+    public function brands()
+    {
+        return $this->hasMany(Brand::class);
+    }
 
 }

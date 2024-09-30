@@ -6,9 +6,6 @@
         <div class="pull-left">
             <h2>Edit Role</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary btn-sm mb-2" href="{{ route('roles.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
-        </div>
     </div>
 </div>
 

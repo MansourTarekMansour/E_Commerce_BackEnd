@@ -15,20 +15,20 @@
 </div>
 
 @session('success')
-    <div class="alert alert-success" role="alert"> 
+    <div id="success-alert" class="alert alert-success" role="alert"> 
         {{ $value }}
     </div>
 @endsession
 
 <table class="table table-bordered">
   <tr>
-     <th width="100px">ID</th>
+     <th width="100px">NO</th>
      <th>Name</th>
      <th width="280px">Action</th>
   </tr>
     @foreach ($roles as $key => $role)
     <tr>
-        <td>{{ $role->id }}</td>
+        <td>{{ ++$i }}</td>
         <td>{{ $role->name }}</td>
         <td>
             <a class="btn btn-info btn-sm" href="{{ route('roles.show',$role->id) }}"><i class="fa-solid fa-list"></i> Show</a>
@@ -50,5 +50,21 @@
 </table>
 
 {!! $roles->links('vendor.pagination.custom-pagination') !!}
-
+ <!-- Use the PerPageSelector component -->
+ <x-per-page-selector :route="'products.index'" :perPage="$perPage" />
+<script>
+    // Automatically hide the alert after a certain time (e.g., 5 seconds)
+    window.onload = function() {
+        const alert = document.getElementById('success-alert');
+        if (alert) {
+            setTimeout(() => {
+                alert.style.transition = "opacity 0.5s ease"; // Add a fade-out transition
+                alert.style.opacity = 0; // Fade out the alert
+                setTimeout(() => {
+                    alert.remove(); // Remove the alert from the DOM after fading out
+                }, 500); // Match this duration with the transition time
+            }, 3000); // Time in milliseconds to wait before hiding the alert
+        }
+    };
+</script>
 @endsection

@@ -32,7 +32,7 @@
 
 <!-- Success message alert -->
 @if(session('success'))
-<div class="alert alert-success" role="alert">
+<div id="success-alert" class="alert alert-success" role="alert">
     {{ session('success') }}
 </div>
 @endif
@@ -41,7 +41,7 @@
 <table class="table table-striped table-bordered mt-3">
     <thead>
         <tr>
-            <th style="width: 5%;">ID</th>
+            <th style="width: 5%;">No</th>
             <th style="width: 75%;">Name</th>
             <th style="width: 20%;">Action</th>
         </tr>
@@ -49,7 +49,7 @@
     <tbody>
         @foreach ($categories as $category)
         <tr>
-            <td>{{ $category->id }}</td> <!-- Use $loop->iteration to display row number -->
+            <td>{{ ++$i }}</td> 
             <td>{{ $category->name }}</td>
             <td>
                 <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline;">
@@ -71,5 +71,21 @@
 
 <!-- Pagination links -->
 {!! $categories->links('vendor.pagination.custom-pagination') !!}
-
+ <!-- Use the PerPageSelector component -->
+ <x-per-page-selector :route="'categories.index'" :perPage="$perPage" />
+<script>
+    // Automatically hide the alert after a certain time (e.g., 5 seconds)
+    window.onload = function() {
+        const alert = document.getElementById('success-alert');
+        if (alert) {
+            setTimeout(() => {
+                alert.style.transition = "opacity 0.5s ease"; // Add a fade-out transition
+                alert.style.opacity = 0; // Fade out the alert
+                setTimeout(() => {
+                    alert.remove(); // Remove the alert from the DOM after fading out
+                }, 500); // Match this duration with the transition time
+            }, 3000); // Time in milliseconds to wait before hiding the alert
+        }
+    };
+</script>
 @endsection

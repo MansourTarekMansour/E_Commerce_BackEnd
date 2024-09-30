@@ -11,12 +11,14 @@ class BrandController extends Controller
     // Display a listing of the brands
     public function index(Request $request)
     {
+        $perPage = $request->input('per_page', 10);
         $search = $request->input('search');
         $brands = Brand::when($search, function ($query, $search) {
             return $query->where('name', 'LIKE', "%{$search}%");
-        })->paginate(10);
+        })->orderBy('name')->paginate($perPage);
 
-        return view('brands.index', compact('brands', 'search'));
+        return view('brands.index', compact('brands', 'search', 'perPage'))
+        ->with('i', ($request->input('page', 1) - 1) * $perPage);
     }
 
     // Show the form for creating a new brand

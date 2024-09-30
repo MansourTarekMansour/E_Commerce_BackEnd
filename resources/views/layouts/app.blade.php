@@ -17,13 +17,115 @@
     <header class="header" id="header">
         <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
         <div class="header_img"><img src="https://i.imgur.com/hczKIze.jpg" alt=""></div>
+
+        <!-- Breadcrumb navigation -->
+        <nav aria-label="breadcrumb" class="">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('home') }}">Dashboard</a>
+                </li>
+               
+                @if (request()->routeIs('users.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('users.index') }}">Admins</a>
+                    </li>
+                    @if (request()->routeIs('users.edit'))
+                    <li class="breadcrumb-item" aria-current="page">Edit Admin</li>
+                    @elseif (request()->routeIs('users.create'))
+                    <li class="breadcrumb-item" aria-current="page">Create Admin</li>
+                    @elseif (request()->routeIs('users.show'))
+                    <li class="breadcrumb-item" aria-current="page">Admin Details</li>
+                    @endif
+                @endif
+
+                @if (request()->routeIs('roles.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('roles.index') }}">Roles</a>
+                    </li>
+                    @if (request()->routeIs('roles.edit'))
+                    <li class="breadcrumb-item" aria-current="page">Edit Role</li>
+                    @elseif (request()->routeIs('roles.create'))
+                    <li class="breadcrumb-item" aria-current="page">Create Role</li>
+                    @elseif (request()->routeIs('roles.show'))
+                    <li class="breadcrumb-item" aria-current="page">Role Details</li>
+                    @endif
+                @endif
+
+                @if (request()->routeIs('products.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('products.index') }}">Products</a>
+                    </li>
+                    @if (request()->routeIs('products.edit'))
+                    <li class="breadcrumb-item" aria-current="page">Edit Product</li>
+                    @elseif (request()->routeIs('products.create'))
+                    <li class="breadcrumb-item" aria-current="page">Create Product</li>
+                    @elseif (request()->routeIs('products.show'))
+                    <li class="breadcrumb-item" aria-current="page">Product Detials</li>
+                    @endif
+                @endif
+
+                @if (request()->routeIs('categories.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('categories.index') }}">Categories</a>
+                    </li>
+                    @if (request()->routeIs('categories.edit'))
+                    <li class="breadcrumb-item" aria-current="page">Edit Category</li>
+                    @elseif (request()->routeIs('categories.create'))
+                    <li class="breadcrumb-item" aria-current="page">Create Category</li>
+                    @elseif (request()->routeIs('categories.show'))
+                    <li class="breadcrumb-item" aria-current="page">Category Detials</li>
+                    @endif
+                @endif
+
+                @if (request()->routeIs('brands.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('brands.index') }}">Brands</a>
+                    </li>
+                    @if (request()->routeIs('brands.edit'))
+                        <li class="breadcrumb-item" aria-current="page">Edit Brand</li>
+                    @elseif (request()->routeIs('brands.create'))
+                        <li class="breadcrumb-item" aria-current="page">Create Brand</li>
+                    @elseif (request()->routeIs('brands.show'))
+                        <li class="breadcrumb-item" aria-current="page">Brand Details</li>
+                    @endif
+                @endif
+
+                @if (request()->routeIs('customers.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('customers.index') }}">Customers</a>
+                    </li>
+                    @if (request()->routeIs('customers.show'))
+                        <li class="breadcrumb-item" aria-current="page">Customer Details</li>
+                    @endif
+                @endif
+            </ol>
+        </nav>
+     <!-- User Name on the Right -->
+     <div class="d-flex align-items-center ms-auto ">
+     <i class="fa-solid fa-user me-2 header_username"> </i>
+        <span class="header_username me-3">
+             {{ Auth::user()->name }}
+        </span>
+       
+    </div>
     </header>
 
+    @if (!request()->routeIs('home') &&
+    !request()->routeIs('users.index') &&
+    !request()->routeIs('roles.index') &&
+    !request()->routeIs('products.index') &&
+    !request()->routeIs('categories.index') &&
+    !request()->routeIs('brands.index') && 
+    !request()->routeIs('customers.index'))
+    <a href="{{ url()->previous() }}" class="btn btn-secondary btn-sm back-to-top">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+    @endif
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
                 <a href="{{ route('home') }}" class="nav_logo">
-                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <i class="fa-brands fa-shopify fa-lg" style="color: #ffffff;"></i>
                     <span class="nav_logo-name">E-COMMERCE</span>
                 </a>
                 <div class="nav_list">
@@ -50,6 +152,10 @@
                     <a href="{{ route('brands.index') }}" class="nav_link {{ request()->routeIs('brands.*') ? 'active' : '' }}">
                         <i class='bx bx-tag nav_icon'></i>
                         <span class="nav_name">Brands</span>
+                    </a>
+                    <a href="{{ route('customers.index') }}" class="nav_link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="nav_name">Customers</span>
                     </a>
                 </div>
             </div>

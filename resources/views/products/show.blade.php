@@ -6,15 +6,22 @@
         <div class="pull-left">
             <h2>Show Product</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary btn-sm" href="{{ route('products.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
+        <div class="form-group">
+            <strong>Created By:</strong> 
+            <a href="{{ route('users.show', $product->user->id) }}">
+                {{ $product->user->name }}
+            </a>
         </div>
     </div>
 </div>
 
 <div class="row mt-4">
     <div class="col-md-6">
+        <h7 class="card-title">ID: {{ $product->id }}</h7>
+
         <h4>{{ $product->name }}</h4>
+
+        
 
         <div class="form-group">
             <strong>Price:</strong> ${{ number_format($product->price, 2) }}

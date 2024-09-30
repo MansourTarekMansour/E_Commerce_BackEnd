@@ -13,14 +13,14 @@
 </div>
 
 @session('success')
-    <div class="alert alert-success" role="alert"> 
+    <div id="success-alert" class="alert alert-success" role="alert"> 
         {{ $value }}
     </div>
 @endsession
 
 <table class="table table-bordered">
    <tr>
-       <th>ID</th>
+       <th>No</th>
        <th>Name</th>
        <th>Email</th>
        <th>Roles</th>
@@ -28,7 +28,7 @@
    </tr>
    @foreach ($data as $key => $user)
     <tr>
-        <td>{{ $user->id }}</td>
+        <td>{{ ++$i }}</td>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
         <td>
@@ -53,5 +53,21 @@
 </table>
 
 {!! $data->links('vendor.pagination.custom-pagination') !!}
-
+<!-- Use the PerPageSelector component -->
+<x-per-page-selector :route="'products.index'" :perPage="$perPage" />
+<script>
+    // Automatically hide the alert after a certain time (e.g., 5 seconds)
+    window.onload = function() {
+        const alert = document.getElementById('success-alert');
+        if (alert) {
+            setTimeout(() => {
+                alert.style.transition = "opacity 0.5s ease"; // Add a fade-out transition
+                alert.style.opacity = 0; // Fade out the alert
+                setTimeout(() => {
+                    alert.remove(); // Remove the alert from the DOM after fading out
+                }, 500); // Match this duration with the transition time
+            }, 3000); // Time in milliseconds to wait before hiding the alert
+        }
+    };
+</script>
 @endsection

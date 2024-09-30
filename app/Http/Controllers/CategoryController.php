@@ -15,16 +15,16 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $query = Category::query();
-
+        $perPage = $request->input('per_page', 10);
         if ($request->has('search')) {
             $search = $request->input('search');
             $query->where('name', 'LIKE', "%{$search}%");
         }
     
-        $categories = $query->paginate(10);
+        $categories = $query->orderBy('name')->paginate($perPage);
     
-        return view('categories.index', compact('categories'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('categories.index', compact('categories','perPage'))
+            ->with('i', (request()->input('page', 1) - 1) * $perPage);
     }
 
     public function show($id)
