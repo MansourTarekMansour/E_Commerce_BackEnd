@@ -29,11 +29,12 @@ class UserController extends BaseController
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request): View
-    {
-        $data = User::paginate(10);
+    {   
+        $perPage = $request->input('per_page', 10);
+        $data = User::paginate(perPage: $perPage);
 
-        return view('users.index', compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('users.index', compact('data', 'perPage'))
+            ->with('i', ($request->input('page', 1) - 1) * $perPage);
     }
 
     /**

@@ -60,17 +60,20 @@ class ProductController extends BaseController
             });
         }
 
+        // Get the number of per page (default is 10)
+        $perPage = $request->input('per_page', 10);
+
         // Order the products in descending order
-        $products = $query->orderBy('id', 'desc')->paginate(10);
-
+        $products = $query->orderBy('id', 'desc')->paginate($perPage);
+        
         // Get all categories and brands
-        $categories = Category::get();
-        $brands = Brand::get();
+        $categories = Category::select('id', 'name')->get();
+        $brands = Brand::select('id', 'name')->get();
 
-        return view('products.index', compact('products', 'categories', 'brands'));
+
+        return view('products.index', compact('products', 'categories', 'brands', 'perPage'))
+            ->with('i', ($request->input('page', 1) - 1) * $perPage);
     }
-
-
 
 
     public function create(): View
@@ -138,6 +141,7 @@ class ProductController extends BaseController
 
     public function show(Product $product): View
     {
+        $product->load('user');
         $category = $product->category;
         $brand = $product->brand;
         $categories = Category::all(); // Assuming you have a Category model
