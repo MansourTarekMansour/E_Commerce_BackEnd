@@ -41,14 +41,14 @@
             <div class="form-group">
                 <strong>Current Image:</strong>
                 <div>
-                    <img id="preview-image" src="{{ asset('storage/' . $category->file->url) }}" alt="Category Image" style="max-width: 200px; max-height: 200px;">
+                    <img id="preview-image" src="{{ $category->getImageUrl($category->file->url) }}" alt="Category Image" style="max-width: 200px; max-height: 200px;">
                 </div>
             </div>
             @endif
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-main mt-3">Submit</button>
         </div>
     </div>
 

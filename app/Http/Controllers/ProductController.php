@@ -10,48 +10,35 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use App\Traits\HandlesProductsPermissions;
 
 class ProductController extends BaseController
 {
     use HandlesProductsPermissions;
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->setupProductsPermissions();
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
-        $query = Product::query()->with(['category', 'brand', 'comments']); // Eager load relationships
+        $query = Product::query()->with(['category', 'brand', 'comments']);
 
-        // Filter by category
+        // Apply filters
         if ($request->filled('category')) {
             $query->where('category_id', $request->category);
         }
-
-        // Filter by brand
         if ($request->filled('brand')) {
             $query->where('brand_id', $request->brand);
         }
-
-        // Filter by start date
         if ($request->filled('start_date')) {
             $query->whereDate('created_at', '>=', $request->start_date);
         }
-
-        // Filter by end date
         if ($request->filled('end_date')) {
             $query->whereDate('created_at', '<=', $request->end_date);
         }
-
-
-        // Search functionality
         if ($request->filled('search')) {
             $searchTerm = $request->search;
             $query->where(function ($q) use ($searchTerm) {
@@ -60,35 +47,27 @@ class ProductController extends BaseController
             });
         }
 
-        // Get the number of per page (default is 10)
+        // Pagination
         $perPage = $request->input('per_page', 10);
-
-        // Order the products in descending order
         $products = $query->orderBy('id', 'desc')->paginate($perPage);
-        
-        // Get all categories and brands
         $categories = Category::select('id', 'name')->get();
         $brands = Brand::select('id', 'name')->get();
-
 
         return view('products.index', compact('products', 'categories', 'brands', 'perPage'))
             ->with('i', ($request->input('page', 1) - 1) * $perPage);
     }
 
-
     public function create(): View
     {
-        $categories = Category::all(); // Fetch all categories
-        $brands = Brand::all(); // Fetch all brands
+        $categories = Category::all();
+        $brands = Brand::all();
 
         return view('products.create', compact('categories', 'brands'));
     }
 
-
-
     public function store(Request $request)
     {
-        // Validate the incoming request data
+        // Validate request data
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -97,55 +76,41 @@ class ProductController extends BaseController
             'quantity_in_stock' => 'required|integer',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'images' => 'nullable|array', // New validation for images
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Individual image validation
+            'images' => 'nullable|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Create a new product instance
+        // Create a new product
         $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
             'discount_price' => $request->discount_price,
             'quantity_in_stock' => $request->quantity_in_stock,
-            'quantity_sold' => 0, // Assuming initially no items sold
-            'is_available' => true, // Default value
-            'rating' => 0, // Default rating
-            'user_id' => Auth::id(), // Use the authenticated user's ID
+            'quantity_sold' => 0,
+            'is_available' => true,
+            'rating' => 0,
+            'user_id' => Auth::id(),
             'category_id' => $request->category_id,
             'brand_id' => $request->brand_id,
         ]);
 
-        // Handle file uploads
+        // Store images
         if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $file) {
-                // Ensure file is not null
-                if ($file) {
-                    $path = $file->store('product_images', 'public'); // Store image in 'public/product_images' directory
-
-                    // Create a new File record
-                    File::create([
-                        'url' => $path,
-                        'fileable_id' => $product->id,
-                        'fileable_type' => Product::class,
-                        'file_type' => 'image', // Define your own logic here if necessary
-                    ]);
-                }
-            }
+            $product->storeImages($request->file('images'));
         }
-        // Return a success response
+
         return redirect()->route('products.index')->with('success', 'Product added successfully!');
     }
-
-
 
     public function show(Product $product): View
     {
         $product->load('user');
         $category = $product->category;
         $brand = $product->brand;
-        $categories = Category::all(); // Assuming you have a Category model
+        $categories = Category::all();
         $brands = Brand::all();
+        
         return view('products.show', compact('product', 'categories', 'brands', 'category', 'brand'));
     }
 
@@ -153,12 +118,13 @@ class ProductController extends BaseController
     {
         $categories = Category::all();
         $brands = Brand::all();
+        
         return view('products.edit', compact('product', 'categories', 'brands'));
     }
 
     public function update(Request $request, Product $product): RedirectResponse
     {
-        // Validate the incoming request data
+        // Validate request data
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -167,88 +133,38 @@ class ProductController extends BaseController
             'quantity_in_stock' => 'required|integer',
             'category_id' => 'required|exists:categories,id',
             'brand_id' => 'required|exists:brands,id',
-            'images' => 'nullable|array', // New validation for images
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Individual image validation
+            'images' => 'nullable|array',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Update the product with the new data
-        $product->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'discount_price' => $request->discount_price,
-            'quantity_in_stock' => $request->quantity_in_stock,
-            'category_id' => $request->category_id,
-            'brand_id' => $request->brand_id,
-        ]);
+        // Update the product
+        $product->update($request->only([
+            'name', 'description', 'price', 'discount_price', 'quantity_in_stock', 'category_id', 'brand_id'
+        ]));
 
-        // Delete old images if new images are provided
+        // Store new images
         if ($request->hasFile('images')) {
-
-            // Handle new file uploads
-            foreach ($request->file('images') as $file) {
-                if ($file) {
-                    $path = $file->store('product_images', 'public'); // Store image in 'public/product_images' directory
-
-                    // Create a new File record for each uploaded image
-                    File::create([
-                        'url' => $path,
-                        'fileable_id' => $product->id,
-                        'fileable_type' => Product::class,
-                        'file_type' => 'image',
-                    ]);
-                }
-            }
+            $product->storeImages($request->file('images'));
         }
 
-        // Return a success response
         return redirect()->route('products.index')->with('success', 'Product updated successfully!');
-    }
-
-    public function uploadImage(Request $request, Product $product)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        // Handle the upload
-        $file = $request->file('image');
-        $path = $file->store('product_images', 'public'); // Store in storage/app/public/product_images
-
-        // Create a new file entry in the database (assuming your File model is set up correctly)
-        $product->files()->create([
-            'url' => $path,
-            'file_type' => 'image', // Adjust this according to your implementation
-        ]);
-
-        return response()->json(['success' => true, 'file' => $path]);
     }
 
     public function destroy(Product $product): RedirectResponse
     {
-        // Optionally, delete the associated files (images)
+        // Delete associated files
         foreach ($product->files as $file) {
-            // Delete the file from storage
-            if (Storage::exists($file->url)) {
-                Storage::delete($file->url); // Delete the file from storage
-            }
-
-            // Delete the file record from the database
+            $product->deleteImage($file->url);
             $file->delete();
         }
-
-        // Delete the product from the database
         $product->delete();
 
-        // Return a success response
         return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
     }
 
     public function destroyFile(File $file)
     {
-        if (Storage::exists($file->url)) {
-            Storage::delete($file->url);
-        }
+        Product::deleteImage($file->url); 
         $file->delete();
         return response()->json(['message' => 'Image deleted successfully.'], 200);
     }

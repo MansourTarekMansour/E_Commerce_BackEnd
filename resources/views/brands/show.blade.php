@@ -16,6 +16,14 @@
             <h5 class="card-title">Name: {{ $brand->name }}</h5>
             <p class="card-text">Created At: {{ $brand->created_at->format('d M, Y H:i') }}</p>
             <p class="card-text">Updated At: {{ $brand->updated_at->format('d M, Y H:i') }}</p>
+            <div class="col-md-6">
+                @if($brand->file)
+                <strong>Image:</strong>
+                <div>
+                    <img src="{{ $brand->getImageUrl($brand->file->url) }}" alt="Customer Image" class="img-fluid" style="max-width: 200px;" />
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>

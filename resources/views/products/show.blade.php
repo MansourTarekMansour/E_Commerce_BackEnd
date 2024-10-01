@@ -79,7 +79,7 @@
                 @foreach($product->files as $key => $file)
                     @if($file->file_type == 'image')
                         <div class="col-2">
-                            <img src="{{ asset('storage/' . $file->url) }}" class="img-thumbnail img-fluid thumb mb-2" data-bs-target="#productCarousel" data-bs-slide-to="{{ $key }}" style="cursor: pointer; height: 95px; width: 110px; object-fit: cover;">
+                            <img src="{{ $product->getImageUrl($file->url) }}" class="img-thumbnail img-fluid thumb mb-2" data-bs-target="#productCarousel" data-bs-slide-to="{{ $key }}" style="cursor: pointer; height: 95px; width: 110px; object-fit: cover;">
                         </div>
                     @endif
                 @endforeach
@@ -91,7 +91,7 @@
                     @foreach($product->files as $key => $file)
                         @if($file->file_type == 'image')
                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="{{ asset('storage/' . $file->url) }}" class="d-block w-100 img-fluid img-thumbnail" alt="Product Image" style="object-fit: contain; width: 100%; height: 500px;">
+                                <img src="{{ $product->getImageUrl($file->url) }}" class="d-block w-100 img-fluid img-thumbnail" alt="Product Image" style="object-fit: contain; width: 100%; height: 500px;">
                             </div>
                         @endif
                     @endforeach

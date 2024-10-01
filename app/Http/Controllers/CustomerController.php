@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\File;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
 
 class CustomerController extends Controller
 {
@@ -15,7 +14,7 @@ class CustomerController extends Controller
         $perPage = $request->input('per_page', 10);
         $customers = Customer::paginate($perPage);
         return view('customers.index', compact('customers', 'perPage'))
-        ->with('i', ($request->input('page', 1) - 1) * $perPage);
+            ->with('i', ($request->input('page', 1) - 1) * $perPage);
     }
 
     // Show the form for creating a new resource
@@ -45,23 +44,13 @@ class CustomerController extends Controller
             'blocked_until' => $validatedData['blocked_until'] ?? null,
         ]);
 
+        // Store the customer's image if provided
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = $file->store('customer_images', 'public'); 
-
-            // Create the image record in the File model
-            $image = new File([
-                'url' => $fileName,
-                'file_type' => 'image',
-            ]);
-
-            // Associate the image with the customer
-            $customer->image()->save($image);
+            $customer->storeImage($request->file('image'));
         }
 
         return redirect()->route('customers.index')->with('success', 'Customer created successfully.');
     }
-
 
     // Display the specified resource
     public function show(Customer $customer)
@@ -105,22 +94,8 @@ class CustomerController extends Controller
 
         // Handle image upload if a new image is provided
         if ($request->hasFile('image')) {
-            // Delete old image record if it exists
-            if ($customer->image()) {
-                $customer->image()->delete();
-            }
-
-            $file = $request->file('image');
-            $fileName = $file->store('customer_images', 'public');
-
-            // Create the image record in the File model
-            $image = new File([
-                'url' => $fileName,
-                'file_type' => 'image',
-            ]);
-
-            // Associate the new image with the customer
-            $customer->image()->save($image);
+            $customer->deleteImage(); // Delete old image if exists
+            $customer->storeImage($request->file('image')); // Store new image
         }
 
         return redirect()->route('customers.index')->with('success', 'Customer updated successfully.');
@@ -129,11 +104,8 @@ class CustomerController extends Controller
     // Remove the specified resource from storage
     public function destroy(Customer $customer)
     {
-        if ($customer->image) {
-            $customer->image->delete();
-        }
-
-        $customer->delete();
+        $customer->deleteImage(); // Delete image if exists
+        $customer->delete(); // Delete customer
 
         return redirect()->route('customers.index')->with('success', 'Customer deleted successfully.');
     }
