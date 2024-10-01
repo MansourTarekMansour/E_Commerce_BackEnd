@@ -36,7 +36,7 @@
                         @if($customer->image)
                             <strong>Image:</strong>
                             <div>
-                                <img src="{{ asset('storage/' . $customer->image->url) }}" alt="Customer Image" class="img-fluid" style="max-width: 200px;"/>
+                                <img src="{{ $customer->getImageUrl($customer->image->url) }}" alt="Customer Image" class="img-fluid" style="max-width: 200px;"/>
                             </div>
                         @endif
                     </div>

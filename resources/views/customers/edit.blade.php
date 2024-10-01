@@ -45,7 +45,7 @@
                 <div class="mt-2">
                     <label>Current Image</label>
                     <div>
-                        <img src="{{ asset('storage/' . $customer->image->url) }}" alt="Customer Image" style="max-width: 150px; height: auto;">
+                        <img src="{{ $customer->getImageUrl($customer->image->url) }}" alt="Customer Image" style="max-width: 150px; height: auto;">
                     </div>
                 </div>
             @endif

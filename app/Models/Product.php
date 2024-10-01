@@ -10,9 +10,7 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'products'; // Specify the table name if different from plural of model name
-
-    protected $primaryKey = 'id'; // Specify the primary key if it's not 'id'
+    protected $table = 'products';
 
     protected $fillable = [
         'name',
@@ -27,8 +25,9 @@ class Product extends Model
         'category_id',
         'brand_id',
     ];
-
   
+    public const IMAGE_DIRECTORY = 'storage/product_images';
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -48,23 +47,60 @@ class Product extends Model
     {
         return $this->hasMany(Comment::class, 'product_id');
     }
-    public function cartItems()
-    {
-        return $this->hasMany(CartItem::class, 'product_id');
-    }
-
-    public function orderItems()
-    {
-        return $this->hasMany(OrderItem::class, 'product_id');
-    }
 
     public function files()
     {
         return $this->morphMany(File::class, 'fileable'); 
     }
 
-    public function mainFile()
+    /**
+     * Store multiple images.
+     */
+    public function storeImages($files)
     {
-        return $this->belongsTo(File::class, 'main_file_id'); 
+        foreach ($files as $file) {
+            $fileName = $this->storeImage($file);
+            File::create([
+                'url' => $fileName,
+                'fileable_id' => $this->id,
+                'fileable_type' => self::class,
+                'file_type' => 'image',
+            ]);
+        }
+    }
+
+    /**
+     * Store a single image and return its name.
+     */
+    public static function storeImage($file)
+    {
+        // Sanitize file name
+        $fileName = time() . '-' . preg_replace('/[^A-Za-z0-9\-_.]/', '', $file->getClientOriginalName());
+
+        // Move the file to the product_images directory in public
+        $file->move(public_path(self::IMAGE_DIRECTORY), $fileName);
+
+        // Return the stored file name
+        return $fileName;
+    }
+
+    /**
+     * Get the full URL for the stored image.
+     */
+    public function getImageUrl($fileName)
+    {
+        return asset(self::IMAGE_DIRECTORY . '/' . $fileName);
+    }
+
+    /**
+     * Delete the image file from the public directory.
+     */
+    public static function deleteImage($fileName)
+    {
+        $filePath = public_path(self::IMAGE_DIRECTORY . '/' . $fileName);
+        
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
     }
 }

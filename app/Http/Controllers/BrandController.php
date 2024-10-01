@@ -18,7 +18,7 @@ class BrandController extends Controller
         })->orderBy('name')->paginate($perPage);
 
         return view('brands.index', compact('brands', 'search', 'perPage'))
-        ->with('i', ($request->input('page', 1) - 1) * $perPage);
+            ->with('i', ($request->input('page', 1) - 1) * $perPage);
     }
 
     // Show the form for creating a new brand
@@ -32,11 +32,15 @@ class BrandController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:brands|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
         ]);
 
-        Brand::create([
-            'name' => $request->name,
-        ]);
+        $brand = Brand::create(['name' => $request->name]);
+
+        // Check if an image is uploaded
+        if ($request->hasFile('image')) {
+            $brand->uploadImage($request->file('image')); // Use the upload method
+        }
 
         return redirect()->route('brands.index')->with('success', 'Brand created successfully.');
     }
@@ -53,7 +57,6 @@ class BrandController extends Controller
 
         return response()->json(['id' => $brand->id, 'name' => $brand->name]);
     }
-
 
     // Display the specified brand
     public function show(Brand $brand)
@@ -72,7 +75,7 @@ class BrandController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Image validation
         ]);
 
         // Find the brand by ID
@@ -84,15 +87,10 @@ class BrandController extends Controller
         // Check if a new image is uploaded
         if ($request->hasFile('image')) {
             // Delete the old file if it exists
-            if ($brand->file) {
-                Storage::disk('public')->delete($brand->file->url);
-                // Remove the old file record from the database
-                $brand->file()->delete();
-            }
+            $brand->deleteImage(); // Delete old image using the method in Brand model
 
-            // Store the new file
-            $path = $request->file('image')->store('brand_images', 'public');
-            $brand->file()->create(['url' => $path]);
+            // Store the new image
+            $brand->uploadImage($request->file('image')); // Use the upload method
         }
 
         // Save the brand
@@ -102,7 +100,6 @@ class BrandController extends Controller
             ->with('success', 'Brand updated successfully.');
     }
 
-
     // Remove the specified brand from the database
     public function destroy($id)
     {
@@ -110,11 +107,7 @@ class BrandController extends Controller
         $brand = Brand::with('file')->findOrFail($id);
 
         // Delete the associated file if it exists
-        if ($brand->file) {
-            Storage::disk('public')->delete($brand->file->url);
-            // Remove the file record from the database
-            $brand->file()->delete();
-        }
+        $brand->deleteImage(); // Use the delete method in Brand model
 
         // Delete the brand
         $brand->delete();

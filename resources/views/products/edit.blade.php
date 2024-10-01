@@ -48,7 +48,7 @@
             <div id="uploaded_images" class="d-flex flex-wrap">
                 @foreach($product->files as $file)
                 <div class="image-container position-relative me-2 mb-2" data-id="{{ $file->id }}" style="padding: 5px;">
-                    <img src="{{ asset('storage/' . $file->url) }}" alt="Product Image" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
+                    <img src="{{ $product->getImageUrl($file->url) }}" alt="Product Image" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                         style="cursor: pointer;"
                         onclick="deleteImage({{ $file->id }})">×

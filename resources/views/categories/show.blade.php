@@ -16,6 +16,14 @@
             <h5 class="card-title">Name: {{ $category->name }}</h5>
             <p class="card-text">Created At: {{ $category->created_at }}</p>
             <p class="card-text">Updated At: {{ $category->updated_at }}</p>
+            <div class="col-md-6">
+                @if($category->file)
+                <strong>Image:</strong>
+                <div>
+                    <img src="{{ $category->getImageUrl($category->file->url) }}" alt="Customer Image" class="img-fluid" style="max-width: 200px;" />
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>
