@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('blocked_until')->nullable();
             $table->string('phone_number');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
