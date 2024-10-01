@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('fileable_type');
             $table->string('file_type'); // image, video, etc.
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

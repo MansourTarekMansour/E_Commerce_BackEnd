@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null'); // Change to set null
             $table->foreignId('brand_id')->nullable()->constrained()->onDelete('set null'); // Change to set null
             $table->timestamps();
+            $table->softDeletes();
         });        
     }
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('state'); 
             $table->string('country'); 
             $table->timestamps(); 
+            $table->softDeletes();
         });
     }
 
