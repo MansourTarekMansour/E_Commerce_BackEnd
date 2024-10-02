@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -24,6 +25,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('categories', CategoryController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('customers', CustomerController::class);
+    Route::resource('orders', OrdersController::class);
 
     Route::post('/categories/store-ajax', [CategoryController::class, 'storeAjax'])->name('categories.storeAjax');
     Route::post('/brands/store-ajax', [BrandController::class, 'storeAjax'])->name('brands.storeAjax');

@@ -18,8 +18,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                    <p> <strong>ID: </strong>{{ $customer->id }}</p> 
-                    
+                        <p> <strong>ID: </strong>{{ $customer->id }}</p>
+
                         <strong>Name:</strong>
                         <p>{{ $customer->name }}</p>
 
@@ -31,13 +31,19 @@
 
                         <strong>Blocked Until:</strong>
                         <p>{{ $customer->blocked_until ? $customer->blocked_until->format('Y-m-d H:i:s') : 'Not Blocked' }}</p>
+
+                        <strong>Created At:</strong>
+                        <p>{{ $customer->created_at->format('d M, Y H:i') }} ({{ $customer->created_at->format('l') }}, {{ $customer->created_at->diffForHumans() }})</p>
+
+                        <strong>Updated At:</strong>
+                        <p>{{ $customer->updated_at->format('d M, Y H:i') }} ({{ $customer->updated_at->format('l') }}, {{ $customer->updated_at->diffForHumans() }})</p>
                     </div>
                     <div class="col-md-6">
                         @if($customer->image)
-                            <strong>Image:</strong>
-                            <div>
-                                <img src="{{ $customer->getImageUrl($customer->image->url) }}" alt="Customer Image" class="img-fluid" style="max-width: 200px;"/>
-                            </div>
+                        <strong>Image:</strong>
+                        <div>
+                            <img src="{{ $customer->getImageUrl($customer->image->url) }}" alt="Customer Image" class="img-fluid" style="max-width: 200px;" />
+                        </div>
                         @endif
                     </div>
                 </div>
@@ -55,42 +61,45 @@
             </div>
             <div class="card-body">
                 @if($customer->orders->isEmpty())
-                    <p>No orders found for this customer.</p>
+                <p>No orders found for this customer.</p>
                 @else
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Total Amount</th>
-                                <th>Status</th>
-                                <th>Created At</th>
-                                <th>Products</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($customer->orders as $order)
-                                <tr>
-                                    <td>{{ $order->id }}</td>
-                                    <td>{{ $order->total_amount }}</td>
-                                    <td>{{ $order->status }}</td>
-                                    <td>{{ $order->created_at->format('Y-m-d H:i:s') }}</td>
-                                    <td>
-                                        <ul style="list-style-type: none; padding: 0;">
-                                            @foreach($order->orderItems as $orderItem)
-                                                @if($orderItem->product)
-                                                    <li>
-                                                        <a href="{{ route('products.show', $orderItem->product->id) }}">
-                                                            {{ $orderItem->product->name }}
-                                                        </a>
-                                                    </li>
-                                                @endif
-                                            @endforeach
-                                        </ul>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Products</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($customer->orders as $order)
+                        <tr>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->total_amount }}</td>
+                            <td>{{ $order->status }}</td>
+                            <td>
+                                {{ $order->created_at->format('d M, Y H:i') }}
+                                ({{ $order->created_at->format('l') }}, {{ $order->created_at->diffForHumans() }})
+                            </td>
+                            <td>
+                                <ul style="list-style-type: none; padding: 0;">
+                                    @foreach($order->orderItems as $orderItem)
+                                    @if($orderItem->product)
+                                    <li>
+                                        <a href="{{ route('products.show', $orderItem->product->id) }}">
+                                            {{ $orderItem->product->name }}
+                                        </a>
+                                    </li>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 @endif
             </div>
         </div>
@@ -118,16 +127,16 @@
                     </thead>
                     <tbody>
                         @foreach($customer->cart->cartItems as $cartItem)
-                            <tr>
-                                <td>{{ $cartItem->product_id }}</td>
-                                <td>
-                                    <a href="{{ route('products.show', $cartItem->product_id) }}">
-                                        {{ $cartItem->product->name ?? 'N/A' }}
-                                    </a>
-                                </td>
-                                <td>{{ $cartItem->product->price ?? 'N/A' }}</td>
-                                <td>{{ $cartItem->quantity }}</td>
-                            </tr>
+                        <tr>
+                            <td>{{ $cartItem->product_id }}</td>
+                            <td>
+                                <a href="{{ route('products.show', $cartItem->product_id) }}">
+                                    {{ $cartItem->product->name ?? 'N/A' }}
+                                </a>
+                            </td>
+                            <td>{{ $cartItem->product->price ?? 'N/A' }}</td>
+                            <td>{{ $cartItem->quantity }}</td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

@@ -40,11 +40,13 @@
         </div>
 
         <!-- Image Preview -->
+        @if ($brand->file)
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <img id="image-preview" src="{{ $brand->getImageUrl($brand->file->url) }}" style="max-width: 200px; display: {{ $brand->file ? 'block' : 'none' }};" />
             </div>
         </div>
+        @endif
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-main mt-3">Update</button>
