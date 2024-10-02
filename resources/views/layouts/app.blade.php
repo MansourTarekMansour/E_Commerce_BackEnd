@@ -96,6 +96,17 @@
                     </li>
                     @if (request()->routeIs('customers.show'))
                         <li class="breadcrumb-item" aria-current="page">Customer Details</li>
+                    @elseif (request()->routeIs('customers.edit'))
+                        <li class="breadcrumb-item" aria-current="page">Edit Customer</li>
+                    @endif
+                @endif
+
+                @if (request()->routeIs('orders.*'))
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('orders.index') }}">Orders</a>
+                    </li>
+                    @if (request()->routeIs('orders.show'))
+                        <li class="breadcrumb-item" aria-current="page">Order Details</li>
                     @endif
                 @endif
             </ol>
@@ -116,7 +127,8 @@
     !request()->routeIs('products.index') &&
     !request()->routeIs('categories.index') &&
     !request()->routeIs('brands.index') && 
-    !request()->routeIs('customers.index'))
+    !request()->routeIs('customers.index')&&
+    !request()->routeIs('orders.index'))
     <a href="{{ url()->previous() }}" class="btn btn-secondary btn-sm back-to-top">
         <i class="fas fa-arrow-left"></i> Back
     </a>
@@ -126,7 +138,7 @@
             <div>
                 <a href="{{ route('home') }}" class="nav_logo">
                     <i class="fa-brands fa-shopify fa-lg" style="color: #ffffff;"></i>
-                    <span class="nav_logo-name">E-COMMERCE</span>
+                    <span class="nav_logo-name ms-1">E-COMMERCE</span>
                 </a>
                 <div class="nav_list">
                     <a href="{{ route('home') }}" class="nav_link {{ request()->routeIs('home') ? 'active' : '' }}">
@@ -157,6 +169,10 @@
                         <i class="fa-solid fa-users"></i>
                         <span class="nav_name">Customers</span>
                     </a>
+                    <a href="{{ route('orders.index') }}" class="nav_link {{ request()->routeIs('orders.*') ? 'active' : '' }}">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                        <span class="nav_name">Orders</span>
+                    </a>
                 </div>
             </div>
             <a href="{{ route('logout') }}" class="nav_link" onclick="event.preventDefault();
@@ -172,11 +188,11 @@
     @endif
 
     <!-- Container Main start -->
-    <div class="height-100">
+    <div class="height-100 mb-5">
         <main class="py-4">
             <div class="container bg-white">
                 <div class="row justify-content-center">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <div class="card-body">
                             @yield('content')
                         </div>

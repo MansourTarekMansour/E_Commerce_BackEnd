@@ -14,8 +14,17 @@
         <div class="card-body">
             <h7 class="card-title">ID: {{ $category->id }}</h7>
             <h5 class="card-title">Name: {{ $category->name }}</h5>
-            <p class="card-text">Created At: {{ $category->created_at }}</p>
-            <p class="card-text">Updated At: {{ $category->updated_at }}</p>
+            <p class="card-text">
+                Created At:
+                {{ $category->created_at->format('d M, Y H:i') }}
+                ({{ $category->created_at->format('l') }}, {{ $category->created_at->diffForHumans() }})
+            </p>
+
+            <p class="card-text">
+                Updated At:
+                {{ $category->updated_at->format('d M, Y H:i') }}
+                ({{ $category->updated_at->format('l') }}, {{ $category->updated_at->diffForHumans() }})
+            </p>
             <div class="col-md-6">
                 @if($category->file)
                 <strong>Image:</strong>
