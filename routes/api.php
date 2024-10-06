@@ -2,29 +2,46 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\AuthApiController;
 
-use App\Http\Middleware\SetLocaleLang;
+use App\Http\Controllers\Api\BrandApiController;
+use App\Http\Controllers\Api\ProductApiController;
+use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\CustomerApiController;
 
-// Grouping authentication routes under 'Auth'
+// Auth Routes
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('register', [AuthController::class, 'register']);
-    Route::post('login', [AuthController::class, 'login']);
+    Route::post('register', [AuthApiController::class, 'register']);
+    Route::post('login', [AuthApiController::class, 'login']);
 
     Route::middleware('auth:api')->group(function () {
-        Route::post('/logout', [AuthController::class, 'logout']);
-        Route::post('/refresh', [AuthController::class, 'refresh']);
-        Route::get('profile', [CustomerController::class, 'profile']);
-        Route::put('profile/update', [CustomerController::class, 'update']);
-        Route::delete('profile/delete', [CustomerController::class, 'destroy']);
+        Route::post('/logout', [AuthApiController::class, 'logout']);
+        Route::post('/refresh', [AuthApiController::class, 'refresh']);
     });
+});
 
+// Customer Routes
+Route::group(['prefix' => 'customer', 'middleware' => ['auth:api']], function () {
+    Route::get('/profile', [CustomerApiController::class, 'profile']);  // Get customer profile
+    Route::post('/update', [CustomerApiController::class, 'update']);    // Update profile
+    Route::delete('/delete', [CustomerApiController::class, 'destroy']); // Delete account
+    Route::get('/show/{id}', [CustomerApiController::class, 'show']); // Show specific customer by ID
+});
 
-    
-})->middleware(SetLocaleLang::class);
+// Brands Routes
+Route::group(['prefix' => 'brands', 'middleware' => ['auth:api']], function () {
+    Route::get('/', [BrandApiController::class, 'index']); // Get all brands
+    Route::get('/show/{id}', [BrandApiController::class, 'show']); // Get a specific brand
+});
 
-// // Non-authentication related routes
-// Route::middleware('auth:api')->group(function () {
-//     
-// });
+// Categories Routes
+Route::group(['prefix' => 'categories', 'middleware' => ['auth:api']], function () {
+    Route::get('/', [CategoryApiController::class, 'index']); // Get all categories
+    Route::get('/show/{id}', [CategoryApiController::class, 'show']); // Get a specific category
+});
+
+// Products Routes
+Route::group(['prefix' => 'products', 'middleware' => ['auth:api']], function () {
+    Route::get('/', [ProductApiController::class, 'index']); // Get all products
+    Route::get('/show/{id}', [ProductApiController::class, 'show']); // Get a specific product
+});
