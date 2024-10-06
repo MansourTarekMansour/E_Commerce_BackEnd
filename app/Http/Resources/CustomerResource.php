@@ -13,7 +13,7 @@ class CustomerResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'phone_number' => $this->phone_number,
-            'profile_image' => $this->profile_image, 
+            'profile_image' => $this->image ? asset('storage/customer_images/' . $this->image->url) : null,
         ];
     }
 }

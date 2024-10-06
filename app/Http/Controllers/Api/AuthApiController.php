@@ -11,7 +11,7 @@ use App\Http\Requests\CustomerRegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
 
-class AuthController extends Controller
+class AuthApiController extends Controller
 {
     // Register a new customer
     public function register(CustomerRegisterRequest $request): JsonResponse
