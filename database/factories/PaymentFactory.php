@@ -3,8 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Payment;
-use App\Models\Customer; // Assuming you have a Customer model
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Customer; // Assuming you have a Customer model
+use App\Models\Order;
 
 class PaymentFactory extends Factory
 {
@@ -18,6 +19,8 @@ class PaymentFactory extends Factory
             'payment_method' => $this->faker->randomElement(['credit_card', 'paypal', 'bank_transfer']), // Random payment method
             'status' => $this->faker->randomElement(['pending', 'completed', 'failed']), // Random status
             'transaction_id' => $this->faker->uuid(), // Generate a random transaction ID
+            'order_id' => null,
+            
         ];
     }
 }

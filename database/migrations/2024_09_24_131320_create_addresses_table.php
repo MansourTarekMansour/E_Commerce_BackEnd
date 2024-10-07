@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id();
-            //$table->foreignId('order_id')->constrained()->onDelete('cascade');
+        Schema::create('addresses', function (Blueprint $table) {
+            $table->id(); 
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
-            $table->string('payment_method'); // Payment method 
-            $table->string('status');
-            $table->string('transaction_id')->nullable();
-            $table->timestamps();
+            $table->string('street');
+            $table->string('city');
+            $table->string('state'); 
+            $table->string('country'); 
+            $table->timestamps(); 
             $table->softDeletes();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('addresses');
     }
 };

@@ -15,8 +15,8 @@ class ProductSimpleResource extends JsonResource
             'discount_price' => $this->discount_price,
             'is_available' => $this->is_available,
             'rating' => $this->rating,
-            'images' => $this->whenLoaded('files')->map(function ($file) {
-                return asset('storage/product_images/' . $file->url); // Adjust the image URL accordingly
+            'images' => $this->files->map(function ($file) {
+                return asset('storage/product_images/' . $file->url);
             }),
         ];
     }
