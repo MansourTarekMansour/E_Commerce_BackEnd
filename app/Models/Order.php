@@ -16,6 +16,7 @@ class Order extends Model
         'customer_id',
         'total_amount',
         'status',
+        'address_id',
     ];
 
 
@@ -30,11 +31,11 @@ class Order extends Model
     }
     public function address()
     {
-        return $this->hasOne(Address::class, 'order_id');
+        return $this->belongsTo(Address::class, 'address_id');
     }
 
     public function payment()
     {
-        return $this->hasOne(Payment::class, 'order_id');
+        return $this->hasOne(Payment::class, 'payment_id');
     }
 }

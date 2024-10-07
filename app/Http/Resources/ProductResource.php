@@ -23,6 +23,7 @@ class ProductResource extends JsonResource
             'images' => $this->files->map(function ($file) {
                 return asset('storage/product_images/' . $file->url);
             }),
+            'comments' => CommentResource::collection($this->whenLoaded('comments')), // Add this line
         ];
     }
 }

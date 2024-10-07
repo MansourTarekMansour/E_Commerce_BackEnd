@@ -12,21 +12,14 @@ class Address extends Model
     protected $table = 'addresses'; 
     protected $fillable = [
         'customer_id',
-        'order_id',
         'street',
         'city',
         'state',
-        'postal_code',
         'country',
     ];
 
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_id'); 
-    }
-
-    public function order()
-    {
-        return $this->belongsTo(Order::class, 'order_id'); 
     }
 }

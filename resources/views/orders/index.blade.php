@@ -6,11 +6,11 @@
         <div class="pull-left">
             <h2>Orders</h2>
         </div>
-        <div class="pull-right d-flex align-items-center">
+        <!-- <div class="pull-right d-flex align-items-center">
             @can('orders-create')
             <a class="btn btn-success btn-sm mb-2 me-2" href="{{ route('orders.create') }}"><i class="fa fa-plus"></i> Create New Order</a>
             @endcan
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -57,16 +57,16 @@
             <td>
                 <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
                     <a class="btn btn-info btn-sm" href="{{ route('orders.show', $order->id) }}"><i class="fa-solid fa-list"></i> Show</a>
-                    @can('orders-edit')
+                    <!-- @can('orders-edit')
                     <a class="btn btn-primary btn-sm" href="{{ route('orders.edit', $order->id) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                    @endcan
+                    @endcan -->
 
                     @csrf
                     @method('DELETE')
 
-                    @can('orders-delete')
+                    <!-- @can('orders-delete')
                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this order?');"><i class="fa-solid fa-trash"></i> Delete</button>
-                    @endcan
+                    @endcan -->
                 </form>
             </td>
         </tr>
