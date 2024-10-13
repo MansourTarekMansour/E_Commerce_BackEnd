@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id(); 
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); 
-            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade'); // Reference the customers table
+            $table->foreignId('customer_id')->nullable()->constrained('customers')->onDelete('cascade'); // Reference the customers table
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade'); // For both admins and customers
+            $table->foreignId('parent_id')->nullable()->constrained('comments')->onDelete('cascade'); // For replies
             $table->text('content'); 
-            $table->integer('rate'); 
+            $table->integer('rate')->nullable(); 
             $table->timestamps();
             
         });        

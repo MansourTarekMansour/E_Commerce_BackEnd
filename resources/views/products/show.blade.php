@@ -124,23 +124,69 @@
         @if($product->comments->isEmpty())
         <p>No comments available for this product.</p>
         @else
-        @foreach($product->comments as $comment)
+        @foreach($product->comments->whereNull('parent_id') as $comment)
         <div class="card mb-3">
             <div class="card-body">
-                <strong>{{ $comment->customer->name }}:</strong>
+                <strong>
+                    @if ($comment->user)
+                    {{ $comment->user->name }} (Admin):
+                    @elseif ($comment->customer)
+                    {{ $comment->customer->name }} (Customer):
+                    @else
+                    Unknown User:
+                    @endif
+                </strong>
                 <p>{{ $comment->content }}</p>
                 <small class="text-muted">
-                    {{ $comment->created_at->format('d M, Y H:i') }} ({{ $comment->created_at->format('l') }}, {{ $comment->created_at->diffForHumans() }})
+                    {{ $comment->created_at->format('d M, Y H:i') }}
+                    ({{ $comment->created_at->format('l') }}, {{ $comment->created_at->diffForHumans() }})
                 </small>
+
+                <!-- Reply Button -->
+                <button class="btn btn-link p-0 mt-2" data-bs-toggle="collapse"
+                    data-bs-target="#replyForm-{{ $comment->id }}">
+                    Reply
+                </button>
+
+                <!-- Replies -->
+                <div class="mt-3">
+                    @foreach($comment->replies as $reply)
+                    <div class="card mb-2 ms-4">
+                        <div class="card-body">
+                            <strong>{{ $reply->user->name }}:</strong>
+                            <p>{{ $reply->content }}</p>
+                            <small class="text-muted">
+                                {{ $reply->created_at->format('d M, Y H:i') }}
+                                ({{ $reply->created_at->diffForHumans() }})
+                            </small>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <!-- Reply Form (Collapsible) -->
+                <div class="collapse mt-2" id="replyForm-{{ $comment->id }}">
+                    <form action="{{ route('comments.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="parent_id" value="{{ $comment->id }}">
+                        <div class="form-group">
+                            <textarea name="content" class="form-control"
+                                placeholder="Write a reply..." rows="2" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Submit Reply</button>
+                    </form>
+                </div>
             </div>
         </div>
         @endforeach
         @endif
 
-        <!-- Add Comment Form -->
-        <form action="{{ route('comments.store') }}" method="POST">
+        <!-- Add New Comment Form -->
+        <form action="{{ route('comments.store') }}" method="POST" class="mt-4">
             @csrf
             <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <input type="hidden" name="parent_id" value="">
             <div class="form-group">
                 <textarea name="content" class="form-control" placeholder="Add a comment..." rows="3" required></textarea>
             </div>
@@ -148,5 +194,6 @@
         </form>
     </div>
 </div>
+
 
 @endsection

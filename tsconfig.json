@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "es6",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./public/js",  // Output compiled JS files to public/js
+      "rootDir": "./resources/ts"  // Source TypeScript files
+    },
+    "include": ["resources/ts/**/*"],
+    "exclude": ["node_modules"]
+  }
+  

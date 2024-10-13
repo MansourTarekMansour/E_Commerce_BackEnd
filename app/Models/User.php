@@ -70,4 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Brand::class);
     }
 
+    /**
+     * Relationship with comments.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

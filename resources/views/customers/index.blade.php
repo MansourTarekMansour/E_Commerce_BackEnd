@@ -24,11 +24,11 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th style="width: 5%;">No</th> 
-            <th style="width: 30%;">Name</th>
-            <th style="width: 30%;">Email</th>
-            <th style="width: 15%;">Phone Number</th>
-            <th style="width: 20%;">Action</th>
+            <th>No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th width="250px">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -59,8 +59,8 @@
 </table>
 
 {!! $customers->links('vendor.pagination.custom-pagination') !!}
- <!-- Use the PerPageSelector component -->
- <x-per-page-selector :route="'customers.index'" :perPage="$perPage" />
+<!-- Use the PerPageSelector component -->
+<x-per-page-selector :route="'customers.index'" :perPage="$perPage" />
 <script>
     // Automatically hide the alert after a certain time (e.g., 5 seconds)
     window.onload = function() {

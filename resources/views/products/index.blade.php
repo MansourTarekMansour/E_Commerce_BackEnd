@@ -65,14 +65,14 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th style="width: 6%;">No</th> <!-- Changed header from "No" to "ID" -->
-            <th style="width: 20%;">Name</th>
-            <th style="width: 10%;">Price</th>
-            <th style="width: 12%;">Discount Price</th>
-            <th style="width: 12%;">Quantity in Stock</th>
-            <th style="width: 10%;">Category</th>
-            <th style="width: 10%;">Brand</th>
-            <th style="width: 20%;">Action</th>
+            <th>No</th> <!-- Changed header from "No" to "ID" -->
+            <th>Name</th>
+            <th>Price</th>
+            <th>Discount Price</th>
+            <th>Quantity in Stock</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th width="250px">Action</th>
         </tr>
     </thead>
     <tbody>

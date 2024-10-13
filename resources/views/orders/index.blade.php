@@ -23,12 +23,12 @@
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th style="width: 5%;">No</th>
-            <th style="width: 25%;">Customer</th>
-            <th style="width: 15%;">Total Amount</th>
-            <th style="width: 15%;">Order Status</th>
-            <th style="width: 30%;">Created At</th>
-            <th style="width: 20%;">Action</th>
+            <th>No</th>
+            <th>Customer</th>
+            <th>Total Amount</th>
+            <th>Order Status</th>
+            <th>Created At</th>
+            <th width="250px">Action</th>
         </tr>
     </thead>
     <tbody>
