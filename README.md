@@ -15,3 +15,13 @@
     </ul>
 
     
+# Postman Collection
+
+This repository contains a Postman collection for testing the API.
+
+## How to Import
+
+1. Open Postman.
+2. Click on the "Import" button.
+3. Select the exported `E-Commerce.postman_collection.json` file from this repository.
+4. Click "Import" to load the collection.
