@@ -42,8 +42,8 @@
     <thead>
         <tr>
             <th style="width: 5%;">No</th>
-            <th style="width: 75%;">Name</th>
-            <th style="width: 20%;">Action</th>
+            <th>Name</th>
+            <th width="250px">Action</th>
         </tr>
     </thead>
     <tbody>

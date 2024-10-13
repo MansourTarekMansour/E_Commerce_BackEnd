@@ -5,15 +5,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
               bodypd = document.getElementById(bodyId),
               headerpd = document.getElementById(headerId);
 
-        // Load the sidebar state from localStorage
-        // const isOpen = localStorage.getItem('sidebarOpen') === 'true';
-        // if (isOpen) {
-        //     nav.classList.add('open');
-        //     nav.classList.add('show');
-        //     bodypd.classList.add('body-pd');
-        //     headerpd.classList.add('body-pd');
-        //     toggle.classList.add('bx-x'); // Ensure the toggle button reflects the open state
-        // }
+        //Load the sidebar state from localStorage
+        const isOpen = localStorage.getItem('sidebarOpen') === 'true';
+        if (isOpen) {
+            nav.classList.add('open');
+            nav.classList.add('show');
+            bodypd.classList.add('body-pd');
+            headerpd.classList.add('body-pd');
+            toggle.classList.add('bx-x'); // Ensure the toggle button reflects the open state
+        }
 
         // Validate that all variables exist
         if (toggle && nav && bodypd && headerpd) {

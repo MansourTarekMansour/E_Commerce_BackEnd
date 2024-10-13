@@ -27,17 +27,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Create some customers
-        $customers = Customer::factory()->count(10)->create(); // Assuming you have a factory for Customer
+        $customers = Customer::factory()->count(20)->create(); // Assuming you have a factory for Customer
 
         // Create some categories and brands
-        $categories = Category::factory()->count(10)->create();
-        $brands = Brand::factory()->count(10)->create();
+        $categories = Category::factory()->count(20)->create();
+        $brands = Brand::factory()->count(20)->create();
         
         // Create an array to hold products
         $products = [];
 
         // Create some products
-        foreach (range(1, 15) as $index) {
+        foreach (range(1, 25) as $index) {
             $product = Product::factory()->create([
                 'category_id' => $categories->random()->id,
                 'brand_id' => $brands->random()->id,
