@@ -1,0 +1,4470 @@
+{
+	"info": {
+		"_postman_id": "e9493eb6-ab20-4383-83ab-0f2c16925ba2",
+		"name": "E-Commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27126811",
+		"_collection_link": "https://bold-escape-110844.postman.co/workspace/Team-Projects-Workspace~6b7df997-7ae7-4973-a8e2-72e53bda7120/collection/27126811-e9493eb6-ab20-4383-83ab-0f2c16925ba2?action=share&source=collection_link&creator=27126811"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mansour tarek",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "01111111112",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "mansour tarek",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mansour5@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "01149589134",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Oct 2024 19:12:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Customer registered successfully.\",\n    \"customer\": {\n        \"id\": 48,\n        \"name\": \"mansour tarek\",\n        \"email\": \"mansour5@gmail.com\",\n        \"phone_number\": \"01149589134\",\n        \"profile_image\": null\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3Mjc5ODI3NzUsImV4cCI6MTcyNzk4NjM3NSwibmJmIjoxNzI3OTgyNzc1LCJqdGkiOiJOT1FlUWNpQ0FQUFlFd3JMIiwic3ViIjoiNDgiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.kHMzli0bPseTO0ISRPe4cPjI_nZs2shj35pmy8L7lBI\"\n}"
+						},
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "mansour tarek",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mansour5@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "01149589134",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Oct 2024 19:32:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Validation errors occurred.\",\n    \"errors\": {\n        \"email\": [\n            \"This email is already registered.\"\n        ],\n        \"phone_number\": [\n            \"This phone number is already registered.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "mansour tarek",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "01111111111",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Oct 2024 13:44:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Customer registered successfully.\",\n    \"customer\": {\n        \"id\": 41,\n        \"name\": \"mansour tarek\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": null\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MjgxMzU4NzMsImV4cCI6MTcyODEzOTQ3MywibmJmIjoxNzI4MTM1ODczLCJqdGkiOiJNMU9NRXJTZzFsMzJTV3JKIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.vFTrJL3BkmdaGarGmblLTy8JApwWW9pooeO8kk85jF0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Oct 2024 13:44:50 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Customer logged in successfully.\",\n    \"customer\": {\n        \"id\": 41,\n        \"name\": \"mansour tarek\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": null\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxMzU4OTAsImV4cCI6MTcyODEzOTQ5MCwibmJmIjoxNzI4MTM1ODkwLCJqdGkiOiJzV1VNeTMwSXFzcTNwdFRXIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.AIQ9QrUDBlsFjeBAjekbD35sIQs7mOfii5AWaxenl5U\"\n}"
+						},
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Oct 2024 15:29:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"تم تسجيل دخول العميل بنجاح.\",\n    \"customer\": {\n        \"id\": 41,\n        \"name\": \"mansour tarek\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": null\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxNDIxODQsImV4cCI6MTcyODE0NTc4NCwibmJmIjoxNzI4MTQyMTg0LCJqdGkiOiJGczc3Y3lBeGxPQjBQeDNWIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QdZJ-MFqwtGki57n5WUVLGMAcKjSnf2DO6nEG9B5280\"\n}"
+						},
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "test1@test.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 14:12:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"تم تسجيل دخول العميل بنجاح.\",\n    \"customer\": {\n        \"id\": 42,\n        \"name\": \"Update Test\",\n        \"email\": \"test1@test.com\",\n        \"phone_number\": \"01111111112\",\n        \"profile_image\": \"http://127.0.0.1:8000/storage/customer_images/1728217029-1667301121206.jpg\"\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMTAzNTIsImV4cCI6MTcyODMxMzk1MiwibmJmIjoxNzI4MzEwMzUyLCJqdGkiOiJVNEFJQWJPZ09DSFNPQ2JlIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.oovL0TwVyeC6v0WVwktd8x6_wze0NI2TKIKWascLnnw\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxMzU4OTAsImV4cCI6MTcyODEzOTQ5MCwibmJmIjoxNzI4MTM1ODkwLCJqdGkiOiJzV1VNeTMwSXFzcTNwdFRXIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.AIQ9QrUDBlsFjeBAjekbD35sIQs7mOfii5AWaxenl5U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxMzU4OTAsImV4cCI6MTcyODEzOTQ5MCwibmJmIjoxNzI4MTM1ODkwLCJqdGkiOiJzV1VNeTMwSXFzcTNwdFRXIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.AIQ9QrUDBlsFjeBAjekbD35sIQs7mOfii5AWaxenl5U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/auth/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Oct 2024 13:47:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully logged out\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Baerer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxMzYxMjQsImV4cCI6MTcyODEzOTcyNCwibmJmIjoxNzI4MTM2MTI0LCJqdGkiOiJTQlhjR04xVjFEa0FXTExaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.1kYv5D1V5yCQG9g0LIN-v6ASl8iLNkzMmKhS-Qco0G0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Baerer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxMzYxMjQsImV4cCI6MTcyODEzOTcyNCwibmJmIjoxNzI4MTM2MTI0LCJqdGkiOiJTQlhjR04xVjFEa0FXTExaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.1kYv5D1V5yCQG9g0LIN-v6ASl8iLNkzMmKhS-Qco0G0",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/auth/refresh",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Oct 2024 13:51:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "Refresh",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgxMzYzMDIsImV4cCI6MTcyODEzOTkwMiwibmJmIjoxNzI4MTM2MzAyLCJqdGkiOiJQaU1RWkN0RDJaMnplNkNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.yTNy71coABIzNF2SSkjn7VXpxtvdlUX4gp6vYcoyRiM",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/auth/refresh",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Oct 2024 13:52:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Token refreshed successfully.\",\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTcyODEzNjMwMiwiZXhwIjoxNzI4MTM5OTM4LCJuYmYiOjE3MjgxMzYzMzgsImp0aSI6IndQSGluSlN3ZXEwdE84SzYiLCJzdWIiOiI0MSIsInBydiI6IjFkMGEwMjBhY2Y1YzRiNmM0OTc5ODlkZjFhYmYwZmJkNGU4YzhkNjMifQ.79fpLGAPv6yXFcoDE0lfEdTfripeaKyBFPYzQwKQu1M\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profile Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzEzOTUsImV4cCI6MTcyODIzNDk5NSwibmJmIjoxNzI4MjMxMzk1LCJqdGkiOiJaVEVlcUlOR2syVzcyUEJzIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.Ok5Jo_grYUalctiSMuhZN2Sh36F_0tuB1flYxfwodOs",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/customer/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTQzMjEsImV4cCI6MTcyODIxNzkyMSwibmJmIjoxNzI4MjE0MzIxLCJqdGkiOiJvWlllVjNURUhpeVJsUWNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.cLOJrRcVgKmhVCgKBOifIrLUkKw7PX5utro1QSJW6W0",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/customer/profile",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 11:47:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع الملف الشخصي بنجاح.\",\n    \"data\": {\n        \"id\": 41,\n        \"name\": \"mansour tarek\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": null\n    }\n}"
+						},
+						{
+							"name": "en",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTQzMjEsImV4cCI6MTcyODIxNzkyMSwibmJmIjoxNzI4MjE0MzIxLCJqdGkiOiJvWlllVjNURUhpeVJsUWNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.cLOJrRcVgKmhVCgKBOifIrLUkKw7PX5utro1QSJW6W0",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "en",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/customer/profile",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 11:48:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Profile retrieved successfully.\",\n    \"data\": {\n        \"id\": 41,\n        \"name\": \"mansour tarek\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Profile Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MjgyMTY3NTEsImV4cCI6MTcyODIyMDM1MSwibmJmIjoxNzI4MjE2NzUxLCJqdGkiOiJEeFhLclhDWHhxZ3lsREtkIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.aeg8JJKJk3ElDfxxVOu4Y3744VT6dlAYbRbeIVmrZVQ",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Update Test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "01111111112",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef83dab-3de8-4a70-8c1e-a34adbdac367"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/customer/update",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "en",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTQzMjEsImV4cCI6MTcyODIxNzkyMSwibmJmIjoxNzI4MjE0MzIxLCJqdGkiOiJvWlllVjNURUhpeVJsUWNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.cLOJrRcVgKmhVCgKBOifIrLUkKw7PX5utro1QSJW6W0",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Update Test",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "01111111111",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1ef83dab-3de8-4a70-8c1e-a34adbdac367"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/customer/update",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"customer",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 12:08:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Profile updated successfully.\",\n    \"data\": {\n        \"id\": 41,\n        \"name\": \"Update Test\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": null\n    }\n}"
+						},
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTQzMjEsImV4cCI6MTcyODIxNzkyMSwibmJmIjoxNzI4MjE0MzIxLCJqdGkiOiJvWlllVjNURUhpeVJsUWNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.cLOJrRcVgKmhVCgKBOifIrLUkKw7PX5utro1QSJW6W0",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Update Test",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "01111111111",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1ef83dab-3de8-4a70-8c1e-a34adbdac367"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/customer/update",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"customer",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 12:08:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم تحديث الملف الشخصي بنجاح.\",\n    \"data\": {\n        \"id\": 41,\n        \"name\": \"Update Test\",\n        \"email\": \"test@test.com\",\n        \"phone_number\": \"01111111111\",\n        \"profile_image\": \"1728216501-1667301121206.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTQzMjEsImV4cCI6MTcyODIxNzkyMSwibmJmIjoxNzI4MjE0MzIxLCJqdGkiOiJvWlllVjNURUhpeVJsUWNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.cLOJrRcVgKmhVCgKBOifIrLUkKw7PX5utro1QSJW6W0",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/customer/delete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTQzMjEsImV4cCI6MTcyODIxNzkyMSwibmJmIjoxNzI4MjE0MzIxLCJqdGkiOiJvWlllVjNURUhpeVJsUWNaIiwic3ViIjoiNDEiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.cLOJrRcVgKmhVCgKBOifIrLUkKw7PX5utro1QSJW6W0",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/customer/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"customer",
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 12:11:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم حذف حساب العميل بنجاح.\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Profile By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MjgyMTY3NTEsImV4cCI6MTcyODIyMDM1MSwibmJmIjoxNzI4MjE2NzUxLCJqdGkiOiJEeFhLclhDWHhxZ3lsREtkIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.aeg8JJKJk3ElDfxxVOu4Y3744VT6dlAYbRbeIVmrZVQ",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/customer/show/42",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"customer",
+								"show",
+								"42"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvcmVnaXN0ZXIiLCJpYXQiOjE3MjgyMTY3NTEsImV4cCI6MTcyODIyMDM1MSwibmJmIjoxNzI4MjE2NzUxLCJqdGkiOiJEeFhLclhDWHhxZ3lsREtkIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.aeg8JJKJk3ElDfxxVOu4Y3744VT6dlAYbRbeIVmrZVQ",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/customer/show/42",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"customer",
+										"show",
+										"42"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 12:17:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع العميل بنجاح.\",\n    \"data\": {\n        \"id\": 42,\n        \"name\": \"Update Test\",\n        \"email\": \"test1@test.com\",\n        \"phone_number\": \"01111111112\",\n        \"profile_image\": \"1728217029-1667301121206.jpg\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "Get All Brands",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/brands/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"brands",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTg0MzUsImV4cCI6MTcyODIyMjAzNSwibmJmIjoxNzI4MjE4NDM1LCJqdGkiOiJrSUMzWFg5OU1yS3IwakZLIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.fa3zDkroCQkEdSgsgiX1yitA68llOOcy_mWObAA8poE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/brands/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 12:41:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع العلامات التجارية بنجاح\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"esse\",\n            \"image\": null\n        },\n        {\n            \"id\": 2,\n            \"name\": \"nam\",\n            \"image\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"voluptatem\",\n            \"image\": null\n        },\n        {\n            \"id\": 4,\n            \"name\": \"fugiat\",\n            \"image\": null\n        },\n        {\n            \"id\": 5,\n            \"name\": \"labore\",\n            \"image\": null\n        },\n        {\n            \"id\": 6,\n            \"name\": \"fuga\",\n            \"image\": null\n        },\n        {\n            \"id\": 7,\n            \"name\": \"et\",\n            \"image\": null\n        },\n        {\n            \"id\": 8,\n            \"name\": \"dignissimos\",\n            \"image\": null\n        },\n        {\n            \"id\": 9,\n            \"name\": \"et\",\n            \"image\": null\n        },\n        {\n            \"id\": 10,\n            \"name\": \"facilis\",\n            \"image\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Brand Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/brands/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"brands",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMTg0MzUsImV4cCI6MTcyODIyMjAzNSwibmJmIjoxNzI4MjE4NDM1LCJqdGkiOiJrSUMzWFg5OU1yS3IwakZLIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.fa3zDkroCQkEdSgsgiX1yitA68llOOcy_mWObAA8poE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/brands/show/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"brands",
+										"show",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 13:14:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع العلامات التجارية بنجاح\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"esse\",\n        \"image\": null,\n        \"products\": [\n            {\n                \"id\": 9,\n                \"name\": \"Aut rerum numquam.\",\n                \"price\": \"222.44\",\n                \"discount_price\": \"240.93\",\n                \"is_available\": 0,\n                \"rating\": \"2.7\",\n                \"images\": []\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get all Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/categories/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/categories/show/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"show",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/categories/show/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"show",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 13:47:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع الفئات بنجاح.\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"libero\",\n        \"image\": null,\n        \"products\": []\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzY0ODQsImV4cCI6MTcyODI0MDA4NCwibmJmIjoxNzI4MjM2NDg0LCJqdGkiOiJRQU5zSXB1ZUlTbjd3bnc5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ClBRNbpsrHR-N4mUyQHQuPQSI9NYD_E4hPSR3KqnFhI",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/products/?page=1&per_page=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/products/?page=2&per_page=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 14:34:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرداد المنتجات بنجاح.\",\n    \"data\": [\n        {\n            \"id\": 5,\n            \"name\": \"Vel saepe cum dicta.\",\n            \"description\": \"Architecto beatae autem ex. Sit quae doloremque voluptatum sunt aut nihil necessitatibus. Non quia sit accusantium exercitationem dolorum. Ipsa quos delectus at eius.\",\n            \"price\": \"992.28\",\n            \"discount_price\": \"581.48\",\n            \"quantity_in_stock\": 46,\n            \"quantity_sold\": 2,\n            \"is_available\": 0,\n            \"rating\": \"4.6\",\n            \"category\": {\n                \"id\": 10,\n                \"name\": \"ipsum\",\n                \"image\": null\n            },\n            \"brand\": {\n                \"id\": 6,\n                \"name\": \"fuga\",\n                \"image\": null\n            },\n            \"images\": []\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Et est labore aut.\",\n            \"description\": \"Est eligendi laboriosam molestiae. Labore aut voluptatum voluptatem ipsa voluptatem rerum consequatur. Beatae est ea tempora.\",\n            \"price\": \"604.86\",\n            \"discount_price\": \"553.35\",\n            \"quantity_in_stock\": 40,\n            \"quantity_sold\": 25,\n            \"is_available\": 1,\n            \"rating\": \"1.6\",\n            \"category\": {\n                \"id\": 3,\n                \"name\": \"impedit\",\n                \"image\": null\n            },\n            \"brand\": {\n                \"id\": 3,\n                \"name\": \"voluptatem\",\n                \"image\": null\n            },\n            \"images\": []\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Aut doloremque error iusto.\",\n            \"description\": \"Eos vel qui quia enim vel et. Sit commodi tempora corporis reiciendis. Voluptate dignissimos facere reiciendis aut aut.\",\n            \"price\": \"302.97\",\n            \"discount_price\": \"377.21\",\n            \"quantity_in_stock\": 1,\n            \"quantity_sold\": 23,\n            \"is_available\": 0,\n            \"rating\": \"3.2\",\n            \"category\": {\n                \"id\": 2,\n                \"name\": \"accusantium\",\n                \"image\": null\n            },\n            \"brand\": {\n                \"id\": 10,\n                \"name\": \"facilis\",\n                \"image\": null\n            },\n            \"images\": []\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Inventore nostrum vero aliquid.\",\n            \"description\": \"Pariatur atque tenetur corporis impedit. Quo commodi accusantium ipsam quis facere. Quibusdam incidunt accusantium dolore sunt id eaque quibusdam.\",\n            \"price\": \"345.94\",\n            \"discount_price\": \"674.56\",\n            \"quantity_in_stock\": 18,\n            \"quantity_sold\": 27,\n            \"is_available\": 0,\n            \"rating\": \"1.7\",\n            \"category\": {\n                \"id\": 10,\n                \"name\": \"ipsum\",\n                \"image\": null\n            },\n            \"brand\": {\n                \"id\": 3,\n                \"name\": \"voluptatem\",\n                \"image\": null\n            },\n            \"images\": []\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Nam mollitia est.\",\n            \"description\": \"Voluptas et ad laboriosam exercitationem rerum eius ducimus molestiae. Maxime in accusamus sint aut in consectetur provident consequatur. Repellat est iure consequuntur reiciendis qui qui illo iste.\",\n            \"price\": \"332.83\",\n            \"discount_price\": \"755.94\",\n            \"quantity_in_stock\": 44,\n            \"quantity_sold\": 15,\n            \"is_available\": 1,\n            \"rating\": \"3.7\",\n            \"category\": {\n                \"id\": 10,\n                \"name\": \"ipsum\",\n                \"image\": null\n            },\n            \"brand\": {\n                \"id\": 5,\n                \"name\": \"labore\",\n                \"image\": null\n            },\n            \"images\": []\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjgzNDAsImV4cCI6MTcyODIzMTk0MCwibmJmIjoxNzI4MjI4MzQwLCJqdGkiOiJyZGdBV1l6NEtvaW1UVUluIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.uB7wl4vRgI6s1SKVz98Eek2r7uPu3EQ7WcieAD9M8zc",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/products/show/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"show",
+								"10"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjIxNTEsImV4cCI6MTcyODIyNTc1MSwibmJmIjoxNzI4MjIyMTUxLCJqdGkiOiJiYVphWlFubGFKUUhubWhBIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.QFs2mPpoLi9unXFsKt_RQBI3ZfQnHZ9Z_WBICIABDoc",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/products/show/10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"show",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 14:36:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرداد المنتج بنجاح.\",\n    \"data\": {\n        \"id\": 10,\n        \"name\": \"Sunt consequatur nulla atque.\",\n        \"description\": \"At repellendus dolor libero debitis accusamus. Tenetur labore excepturi dicta. Expedita placeat doloribus quia veniam aliquam aperiam ad.\",\n        \"price\": \"618.75\",\n        \"discount_price\": \"825.48\",\n        \"quantity_in_stock\": 58,\n        \"quantity_sold\": 27,\n        \"is_available\": 0,\n        \"rating\": \"1.1\",\n        \"category\": {\n            \"id\": 2,\n            \"name\": \"accusantium\",\n            \"image\": null\n        },\n        \"brand\": {\n            \"id\": 6,\n            \"name\": \"fuga\",\n            \"image\": null\n        },\n        \"images\": []\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Add Product Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzEzOTUsImV4cCI6MTcyODIzNDk5NSwibmJmIjoxNzI4MjMxMzk1LCJqdGkiOiJaVEVlcUlOR2syVzcyUEJzIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.Ok5Jo_grYUalctiSMuhZN2Sh36F_0tuB1flYxfwodOs",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "test comment",
+									"type": "text"
+								},
+								{
+									"key": "rate",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products/10/comments/store",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"10",
+								"comments",
+								"store"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMjgzNDAsImV4cCI6MTcyODIzMTk0MCwibmJmIjoxNzI4MjI4MzQwLCJqdGkiOiJyZGdBV1l6NEtvaW1UVUluIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.uB7wl4vRgI6s1SKVz98Eek2r7uPu3EQ7WcieAD9M8zc",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "comment",
+											"value": "test comment",
+											"type": "text"
+										},
+										{
+											"key": "rate",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "product_id",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/products/product/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"product",
+										"comments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 15:59:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم إضافة التعليق بنجاح.\",\n    \"data\": {\n        \"product_id\": \"10\",\n        \"customer_id\": 42,\n        \"content\": \"test comment\",\n        \"rate\": \"4\",\n        \"updated_at\": \"2024-10-06T15:59:14.000000Z\",\n        \"created_at\": \"2024-10-06T15:59:14.000000Z\",\n        \"id\": 49\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzEzOTUsImV4cCI6MTcyODIzNDk5NSwibmJmIjoxNzI4MjMxMzk1LCJqdGkiOiJaVEVlcUlOR2syVzcyUEJzIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.Ok5Jo_grYUalctiSMuhZN2Sh36F_0tuB1flYxfwodOs",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "comment",
+									"value": "Update Comment",
+									"type": "text"
+								},
+								{
+									"key": "rate",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products/10/comments/update/58",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"10",
+								"comments",
+								"update",
+								"58"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "en",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzEzOTUsImV4cCI6MTcyODIzNDk5NSwibmJmIjoxNzI4MjMxMzk1LCJqdGkiOiJaVEVlcUlOR2syVzcyUEJzIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.Ok5Jo_grYUalctiSMuhZN2Sh36F_0tuB1flYxfwodOs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "comment",
+											"value": "Update Comment",
+											"type": "text"
+										},
+										{
+											"key": "rate",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "product_id",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/products/10/comments/update/58",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"10",
+										"comments",
+										"update",
+										"58"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 17:00:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Comment updated successfully.\",\n    \"data\": {\n        \"id\": 58,\n        \"product_id\": 10,\n        \"customer_id\": 42,\n        \"content\": \"test comment\",\n        \"rate\": \"4\",\n        \"created_at\": \"2024-10-06T16:51:15.000000Z\",\n        \"updated_at\": \"2024-10-06T16:51:15.000000Z\",\n        \"customer\": {\n            \"id\": 42,\n            \"name\": \"Update Test\",\n            \"email\": \"test1@test.com\",\n            \"phone_number\": \"01111111112\",\n            \"profile_image\": \"http://127.0.0.1:8000/storage/customer_images/1728217029-1667301121206.jpg\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzEzOTUsImV4cCI6MTcyODIzNDk5NSwibmJmIjoxNzI4MjMxMzk1LCJqdGkiOiJaVEVlcUlOR2syVzcyUEJzIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.Ok5Jo_grYUalctiSMuhZN2Sh36F_0tuB1flYxfwodOs",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/products/10/comments/delete/58",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"10",
+								"comments",
+								"delete",
+								"58"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgyMzEzOTUsImV4cCI6MTcyODIzNDk5NSwibmJmIjoxNzI4MjMxMzk1LCJqdGkiOiJaVEVlcUlOR2syVzcyUEJzIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.Ok5Jo_grYUalctiSMuhZN2Sh36F_0tuB1flYxfwodOs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/products/10/comments/delete/58",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"products",
+										"10",
+										"comments",
+										"delete",
+										"58"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 17:02:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم حذف التعليق بنجاح.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Addresses",
+			"item": [
+				{
+					"name": "Get All Addresses",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/addresses",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"addresses"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:26:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع العناوين بنجاح.\",\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add New Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "street",
+									"value": "Maadi Street",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Maadi",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Egypt",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/addresses/store",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"addresses",
+								"store"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "street",
+											"value": "Maadi Street",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "Maadi",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "Cairo",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "Egypt",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/addresses/store",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"addresses",
+										"store"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:58:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم إنشاء العنوان بنجاح.\",\n    \"data\": {\n        \"id\": 2,\n        \"street\": \"Maadi Street\",\n        \"city\": \"Maadi\",\n        \"state\": \"Cairo\",\n        \"country\": \"Egypt\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "street",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/addresses/update/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"addresses",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "street",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/addresses/update/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"addresses",
+										"update",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 18:02:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم تحديث العنوان بنجاح.\",\n    \"data\": {\n        \"id\": 1,\n        \"street\": \"test\",\n        \"city\": \"test\",\n        \"state\": \"test\",\n        \"country\": \"test\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Address",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/addresses/delete/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"addresses",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/addresses/delete/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"addresses",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 18:03:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم حذف العنوان بنجاح.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Carts",
+			"item": [
+				{
+					"name": "Get Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/carts/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"carts",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar item empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/cart/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 12:51:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"العربة غير موجودة.\"\n}"
+						},
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/cart/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 13:02:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرداد العربة بنجاح.\",\n    \"data\": {\n        \"id\": 11,\n        \"customer_id\": 42,\n        \"items\": [\n            {\n                \"id\": 31,\n                \"cart_id\": 11,\n                \"product\": {\n                    \"id\": 1,\n                    \"name\": \"Nam mollitia est.\",\n                    \"price\": \"332.83\",\n                    \"discount_price\": \"755.94\",\n                    \"is_available\": 1,\n                    \"rating\": \"3.7\",\n                    \"images\": []\n                },\n                \"quantity\": 5\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Add New Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/carts/add-item",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"carts",
+								"add-item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/cart/add-item",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"add-item"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 13:02:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تمت إضافة العنصر إلى العربة بنجاح.\",\n    \"data\": {\n        \"cart_id\": 11,\n        \"product_id\": \"2\",\n        \"quantity\": \"1\",\n        \"updated_at\": \"2024-10-07T13:02:46.000000Z\",\n        \"created_at\": \"2024-10-07T13:02:46.000000Z\",\n        \"id\": 32\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update items Quantity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/carts/update-item/31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"carts",
+								"update-item",
+								"31"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "quantity",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/cart/update-item/31",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"update-item",
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 13:06:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم تحديث العنصر بنجاح.\",\n    \"data\": {\n        \"id\": 31,\n        \"cart_id\": 11,\n        \"product_id\": 1,\n        \"quantity\": \"10\",\n        \"created_at\": \"2024-10-07T13:00:15.000000Z\",\n        \"updated_at\": \"2024-10-07T13:06:40.000000Z\",\n        \"deleted_at\": null,\n        \"cart\": {\n            \"id\": 11,\n            \"customer_id\": 42,\n            \"created_at\": \"2024-10-07T13:00:15.000000Z\",\n            \"updated_at\": \"2024-10-07T13:00:15.000000Z\",\n            \"deleted_at\": null\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Item",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/carts/remove-item/31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"carts",
+								"remove-item",
+								"31"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMDUzOTAsImV4cCI6MTcyODMwODk5MCwibmJmIjoxNzI4MzA1MzkwLCJqdGkiOiJEQzhsQUdYQnBOb01jbWh6Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.hFVfEEwfe-CV0wYTyvYicydHJD2q19fQ8KOsJ5hTgUE",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/cart/remove-item/31",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"remove-item",
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 13:09:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تمت إزالة العنصر من العربة بنجاح.\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get All Order",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:00:28 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"لم يتم العثور على أي طلبات.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Store New Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:03:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم إنشاء الطلب بنجاح.\",\n    \"data\": {\n        \"id\": 31,\n        \"total_amount\": 345.94,\n        \"status\": \"pending\",\n        \"created_at\": \"2024-10-07 17:03:53\",\n        \"updated_at\": \"2024-10-07 17:03:53\"\n    }\n}"
+						},
+						{
+							"name": "ar 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "address_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:56:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم إنشاء الطلب بنجاح.\",\n    \"data\": {\n        \"id\": 37,\n        \"total_amount\": 950.8,\n        \"status\": \"pending\",\n        \"created_at\": \"2024-10-07 17:56:26\",\n        \"updated_at\": \"2024-10-07 17:56:26\",\n        \"address\": {\n            \"id\": 1,\n            \"street\": \"Maadi Street\",\n            \"city\": \"Maadi\",\n            \"state\": \"Cairo\",\n            \"country\": \"Egypt\",\n            \"order_id\": null\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Order By ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/orders/31",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:06:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع الطلب بنجاح.\",\n    \"data\": {\n        \"id\": 31,\n        \"total_amount\": \"345.94\",\n        \"status\": \"pending\",\n        \"created_at\": \"2024-10-07 17:03:53\",\n        \"updated_at\": \"2024-10-07 17:03:53\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Order Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/orders/31/status/completed",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"31",
+								"status",
+								"completed"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjAxODgsImV4cCI6MTcyODMyMzc4OCwibmJmIjoxNzI4MzIwMTg4LCJqdGkiOiJlYWg1OE9YWTVMMEg4STdFIiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.ybEYc1Qd5jOLFK--HaJyGZNdxMBhyYsQPBHobbGaubs",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/orders/31/status/completed",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										"31",
+										"status",
+										"completed"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 17:23:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"فشل في تحديث الطلب: الدفع مطلوب لإكمال الطلب..\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Get all Payments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 18:08:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع المبيعات بنجاح.\",\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "customer_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "payment_method",
+									"value": "visa card",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "completed",
+									"type": "text"
+								},
+								{
+									"key": "transaction_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "order_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "customer_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "50",
+											"type": "text"
+										},
+										{
+											"key": "payment_method",
+											"value": "visa card",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "completed",
+											"type": "text"
+										},
+										{
+											"key": "transaction_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/api/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"payments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 18:13:21 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تمت عملية الدفع بنجاح.\",\n    \"data\": {\n        \"id\": 32,\n        \"order_id\": \"1\",\n        \"customer_id\": 42,\n        \"amount\": \"50\",\n        \"payment_method\": \"visa card\",\n        \"status\": \"completed\",\n        \"transaction_id\": \"1\",\n        \"created_at\": \"2024-10-07T18:13:21.000000Z\",\n        \"updated_at\": \"2024-10-07T18:13:21.000000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Payment by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+								"type": "text"
+							},
+							{
+								"key": "lang",
+								"value": "ar",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/payments/31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"payments",
+								"31"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ar",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MjgzMjM4MzEsImV4cCI6MTcyODMyNzQzMSwibmJmIjoxNzI4MzIzODMxLCJqdGkiOiJzWjlLeFdPMFQ2bXJLVWp5Iiwic3ViIjoiNDIiLCJwcnYiOiIxZDBhMDIwYWNmNWM0YjZjNDk3OTg5ZGYxYWJmMGZiZDRlOGM4ZDYzIn0.5l0MIqorXafAGQAue1OOrcjR3e47TAkTdefmvCkHY7A",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/payments/31",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"payments",
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.11"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Oct 2024 18:15:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"تم استرجاع المبيعات بنجاح.\",\n    \"data\": {\n        \"id\": 31,\n        \"order_id\": 1,\n        \"customer_id\": 42,\n        \"amount\": \"50.00\",\n        \"payment_method\": \"visa card\",\n        \"status\": \"completed\",\n        \"transaction_id\": \"1\",\n        \"created_at\": \"2024-10-07T18:12:07.000000Z\",\n        \"updated_at\": \"2024-10-07T18:12:07.000000Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "127.0.0.1:8000"
+		}
+	]
+}
