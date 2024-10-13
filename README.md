@@ -1,5 +1,7 @@
 <h1>Project Description:</h1>
 
+<img src="e-commerce 3.png" alt="E-Commerce Schema" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+
 <p>This Laravel-based E-Commerce platform is designed to provide a seamless shopping experience for customers while offering a powerful management dashboard for administrators. The platform features a robust API that enables integration with mobile applications, web services, or third-party platforms, ensuring scalability and flexibility to meet diverse e-commerce needs. With a modern admin dashboard, administrators can efficiently manage various entities, including products, orders, users, and roles, along with advanced functionalities such as payments and permissions. While the front-end is currently in development, the platform's back-end is fully operational, ready to support both mobile and web applications.</p>
 
 <h2>Technologies Used</h2>
