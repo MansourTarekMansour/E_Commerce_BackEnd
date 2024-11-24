@@ -9,6 +9,7 @@ use App\Http\Resources\CartResource;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CartItemRequest;
 use App\Http\Requests\UpdateCartItemRequest;
+use App\Http\Resources\CartItemResource;
 
 class CartApiController extends Controller
 {
@@ -56,7 +57,7 @@ class CartApiController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => __('cart.item_added_successfully'),
-                'data' => $cartItem,  // Return the created cart item
+                'data' => new CartItemResource($cartItem),  // Return the created cart item
             ], 201);
 
         } catch (\Exception $e) {
@@ -85,7 +86,7 @@ class CartApiController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => __('cart.item_updated_successfully'),
-                'data' => $cartItem,
+                'data' => new CartItemResource($cartItem),
             ]);
 
         } catch (\Exception $e) {
