@@ -59,6 +59,18 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')
             ->with('success', 'Category created successfully.');
     }
+    public function storeAjax(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $brand = Category::create([
+            'name' => $request->input('name'),
+        ]);
+
+        return response()->json(['id' => $brand->id, 'name' => $brand->name]);
+    }
 
     /**
      * Show the form for editing the specified category.
