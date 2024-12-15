@@ -34,7 +34,7 @@
         <pre><code>php artisan key:generate</code></pre>
     </li>
     <li>Migrate the database:
-        <pre><code>php artisan migrate</code></pre>
+        <pre><code>php artisan migrate --seed</code></pre>
     </li>
     <li>Run the development server:
         <pre><code>php artisan serve</code></pre>
