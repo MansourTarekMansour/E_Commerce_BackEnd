@@ -65,7 +65,6 @@
   <img src="project_images/image_5.png" width="250" />
   <img src="project_images/image_6.png" width="250" />
   <img src="project_images/image_7.png" width="250" />
-  <img src="project_images/image_8.png" width="150" />
   <img src="project_images/image_9.png" width="250" />
   <img src="project_images/image_10.png" width="250" />
   <img src="project_images/image_11.png" width="250" />
